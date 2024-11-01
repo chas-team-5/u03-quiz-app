@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiztastic</title>
+</head>
+<body>
+  <div class="stepper">
+    <span class="stepper__readout">Question x / n</span>
+    <ul class="stepper__list-of-indicators">
+      <li class="stepper__indicator stepper__indicator--correct">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--incorrect">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--incorrect">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--correct">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--unanswered">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--unanswered">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--unanswered">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--unanswered">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--unanswered">
+        <i>icon-indicator</i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--unanswered">
+        <i>icon-indicator</i>
+      </li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <p class="question__text">
+      Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
+    </p>
+    <p class="question__answer question__answer--hidden">
+      Rätt svar: correctAnswer
+      <br>
+      Du svarade rätt/fel
+    </p>
+  </div>
+
+  <div class="timer">
+    <span class="timer__indicator">
+      Tid kvar: timeRemaining
+    </span>
+  </div>
+
+  <div class="answer">
+    <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
+    <div class="answer__button"></div>
+    <div class="answer__button"></div>
+    <div class="answer__button"></div>
+    <div class="answer__button"></div>
+
+    <div class="answer__continue answer__continue--hidden"></div>
+  </div>
+</body>
+</html>
