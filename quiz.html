@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
 </head>
 
 <body>
-  <div class="stepper">
+  <header class="stepper">
     <span class="stepper__readout">Question x / n</span>
 
     <!-- Lista med ikoner -->
@@ -47,38 +48,40 @@
         <i>icon-indicator</i>
       </li>
     </ul>
-  </div>
+  </header>
 
-  <div class="question">
-    <p class="question__text">
-      Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
-    </p>
+  <article>
+    <section class="question">
+      <h4 class="question__text">
+        Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
+      </h4>
 
-    <!-- Toggle hidden/visible -->
-    <p class="question__answer question__answer--hidden">
-      Rätt svar: correctAnswer
-      <br>
-      Du svarade rätt/fel
-    </p>
-  </div>
+      <!-- Toggle hidden/visible -->
+      <p class="question__answer question__answer--hidden">
+        Rätt svar: correctAnswer
+        <br>
+        Du svarade rätt/fel
+      </p>
+    </section>
 
-  <div class="timer">
-    <!-- Uppdatera text och/eller bakgrund baserat på timer -->
-    <span class="timer__indicator">
-      Tid kvar: timeRemaining
-    </span>
-  </div>
+    <section class="answer">
+      <!-- Uppdatera text och/eller bakgrund baserat på timer -->
+      <h5 class="timer">
+        Tid kvar: timeRemaining
+      </h5>
 
-  <div class="answer">
-    <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
-    <div class="answer__button">Alternativ 1</div>
-    <div class="answer__button">Alternativ 2</div>
-    <div class="answer__button">Alternativ 3</div>
-    <div class="answer__button">Alternativ 4</div>
+      <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
+      <!-- Möjligen Button istället för Div -->
+      <div class="answer__button" id="answer__A">Alternativ 1</div>
+      <div class="answer__button" id="answer__B">Alternativ 2</div>
+      <div class="answer__button" id="answer__C">Alternativ 3</div>
+      <div class="answer__button" id="answer__D">Alternativ 4</div>
 
-    <!-- Grid eller Flex alternativt utanför diven -->
-    <!-- Toggle hidden/visible -->
-    <!-- <div class="answer__continue answer__continue--hidden">Nästa fråga/resultat</div> -->
-  </div>
+      <!-- Grid eller Flex alternativt utanför diven -->
+      <!-- Toggle hidden/visible -->
+      <!-- <div class="answer__continue answer__continue--hidden">Nästa fråga/resultat</div> -->
+    </section>
+  </article>
 </body>
+
 </html>
