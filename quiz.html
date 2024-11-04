@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz: Hitta ditt inre — Vilken karaktär är du? | Start</title>
+</head>
+
+<body>
+  <header>
+    <img src="#" alt="Logo">
+  </header>
+
+  <article>
+    <section class="stepper">
+      <h5 id="stepperReadout">Question x / n</h5>
+
+      <!-- Lista med ikoner -->
+      <ul class="stepper__list-of-indicators">
+
+        <!-- Toggle unanwered/correct/incorrect -->
+        <li class="stepper__indicator stepper__indicator--correct">
+
+          <!-- Updatera ikon baserat på class -->
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--incorrect">
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--incorrect">
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--correct">
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--unanswered">
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--unanswered">
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--unanswered">
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--unanswered">
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--unanswered">
+          <i>icon-indicator</i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--unanswered">
+          <i>icon-indicator</i>
+        </li>
+      </ul>
+    </section>
+
+    <section class="question">
+      <h4 id="questionText">
+        Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
+      </h4>
+
+      <!-- Toggle hidden/visible -->
+      <!-- generell .hide istället för --hidden -->
+      <p id="questionAnswer">
+        Rätt svar: correctAnswer
+        <br>
+        Du svarade rätt/fel
+      </p>
+    </section>
+
+    <section class="answer">
+      <!-- Uppdatera text och/eller bakgrund baserat på timer -->
+      <h5>
+        Tid kvar:&nbsp;
+        <span id="timeRemaining">timeRemaining</span>
+      </h5>
+
+      <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
+      <!-- Möjligen Button istället för Div -->
+      <div class="answer__button" id="answer__A">Alternativ 1</div>
+      <div class="answer__button" id="answer__B">Alternativ 2</div>
+      <div class="answer__button" id="answer__C">Alternativ 3</div>
+      <div class="answer__button" id="answer__D">Alternativ 4</div>
+    </section>
+  </article>
+</body>
+
+</html>
