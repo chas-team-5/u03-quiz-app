@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiztastic</title>
 </head>
+
 <body>
   <div class="stepper">
     <span class="stepper__readout">Question x / n</span>
+
+    <!-- Lista med ikoner -->
     <ul class="stepper__list-of-indicators">
+
+      <!-- Toggle unanwered/correct/incorrect -->
       <li class="stepper__indicator stepper__indicator--correct">
+
+        <!-- Updatera ikon baserat på class -->
         <i>icon-indicator</i>
       </li>
       <li class="stepper__indicator stepper__indicator--incorrect">
@@ -46,6 +53,8 @@
     <p class="question__text">
       Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
     </p>
+
+    <!-- Toggle hidden/visible -->
     <p class="question__answer question__answer--hidden">
       Rätt svar: correctAnswer
       <br>
@@ -54,6 +63,7 @@
   </div>
 
   <div class="timer">
+    <!-- Uppdatera text och/eller bakgrund baserat på timer -->
     <span class="timer__indicator">
       Tid kvar: timeRemaining
     </span>
@@ -61,12 +71,14 @@
 
   <div class="answer">
     <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
-    <div class="answer__button"></div>
-    <div class="answer__button"></div>
-    <div class="answer__button"></div>
-    <div class="answer__button"></div>
+    <div class="answer__button">Alternativ 1</div>
+    <div class="answer__button">Alternativ 2</div>
+    <div class="answer__button">Alternativ 3</div>
+    <div class="answer__button">Alternativ 4</div>
 
-    <div class="answer__continue answer__continue--hidden"></div>
+    <!-- Grid eller Flex alternativt utanför diven -->
+    <!-- Toggle hidden/visible -->
+    <!-- <div class="answer__continue answer__continue--hidden">Nästa fråga/resultat</div> -->
   </div>
 </body>
 </html>
