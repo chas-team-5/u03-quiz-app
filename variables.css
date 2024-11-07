@@ -9,6 +9,11 @@
   --color-incorrect: #F90053;
   --color-background: #FBF2CA;
 
+  /* Gradients */
+
+  --gradient-linear-horizontal: linear-gradient(90deg, #13B0F5, #E70FAA);
+  --gradient-linear-vertical: linear-gradient(0deg, #13B0F5, #E70FAA);
+
   /* Typography */
   --font-size-heading-lg: 2.5rem;
   --font-size-heading-md: 2rem;

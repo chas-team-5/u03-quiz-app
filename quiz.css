@@ -12,9 +12,13 @@
 
 body {
   margin: var(--spacing-sm);
-  font-family: outfit;
 
-  background-color: #FBF2CA;
+  font-family: "Outfit" Arial, Helvetica, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  background-color: var(--color-background);
 }
 
 h2 {
@@ -84,7 +88,7 @@ header {
 /* TIMER / ANSWER REVEAL */
 
 #timeRemaining {
-  background: linear-gradient(90deg, #13B0F5, #E70FAA);
+  background: var(--gradient-linear-horizontal);
   background-clip: text;
   color: transparent;
 }
@@ -101,9 +105,10 @@ header {
 
 .answer__button {
   padding: 1rem 2rem;
-  border-radius: 1.5rem;
-  /* text-align: center; */
   border: 2px solid var(--color-black-absolute);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  /* text-align: center; */
   background-color: var(--color-white);
 }
 
@@ -111,13 +116,4 @@ header {
 
 .hidden {
   display: none;
-}
-
-/* FONTS */
-
-.outfit-regular {
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
 }
