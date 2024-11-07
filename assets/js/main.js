@@ -6,4 +6,5 @@ startGame.addEventListener("click", startHandler);
 
 function startHandler(e) {
   setCategory(e);
+  window.location.href = "quiz.html";
 }
