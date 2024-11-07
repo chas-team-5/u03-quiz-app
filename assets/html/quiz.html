@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://kit.fontawesome.com/5f1a52fccc.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Quiz: Hitta ditt inre — Vilken karaktär är du? | Start</title>
+</head>
+
+<body>
+  <header>
+    <img class="header-logo" src="../svg/logo.svg" alt="logo">
+  </header>
+
+  <article class="quiz">
+    <section class="stepper">
+      <h4 id="stepperReadout">Question x / n</h4>
+
+      <!-- Lista med ikoner -->
+      <ul class="stepper__list-of-indicators">
+
+        <!-- Toggle unanswered/correct/incorrect -->
+        <li class="stepper__indicator stepper__indicator--correct">
+
+          <!-- Updatera ikon baserat på class -->
+          <i class="fas fa-circle-check"></i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--incorrect">
+          <i class="fas fa-circle-xmark"></i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--incorrect">
+          <i class="fas fa-circle-xmark"></i>
+        </li>
+        <li class="stepper__indicator stepper__indicator--correct">
+          <i class="fas fa-circle-check"></i>
+        </li>
+        <li class="stepper__indicator">
+          <i class="fas fa-circle"></i>
+        </li>
+        <li class="stepper__indicator">
+          <i class="fas fa-circle"></i>
+        </li>
+        <li class="stepper__indicator">
+          <i class="fas fa-circle"></i>
+        </li>
+        <li class="stepper__indicator">
+          <i class="fas fa-circle"></i>
+        </li>
+        <li class="stepper__indicator">
+          <i class="fas fa-circle"></i>
+        </li>
+        <li class="stepper__indicator">
+          <i class="fas fa-circle"></i>
+        </li>
+      </ul>
+    </section>
+
+    <section class="question">
+      <img class="question-img" src="#" alt="question-image">
+
+      <h2 id="questionText">
+        Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
+      </h2>
+    </section>
+
+    <section class="answer">
+      <!-- Uppdatera text och/eller bakgrund baserat på timer -->
+      <h4 class="answer__timer">
+        Du har
+        <span id="timeRemaining">timeRemaining</span>
+        på dig att svara
+      </h4>
+
+      <!-- Toggle hidden/visible -->
+      <h4 class="answer__continue hidden">
+        <span id="questionAnswer">isCorrect?</span>
+        Klicka för att gå vidare
+      </h4>
+
+      <div class="answer__button-container">
+        <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
+        <!-- Möjligen Button istället för Div -->
+        <div class="answer__button" id="answerA">Kameleont</div>
+        <div class="answer__button" id="answerB">Gepard</div>
+        <div class="answer__button" id="answerC">Elefant</div>
+        <div class="answer__button" id="answerD">Pingvin</div>
+      </div>
+    </section>
+  </article>
+</body>
+
+</html>
