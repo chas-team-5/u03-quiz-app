@@ -1,12 +1,27 @@
-let category = "";
-let quizQuestions = []
+import {shuffleArray} from "./utils/helpers.js"
 
-// Check if Category exists
-if (localStorage.getItem("selectedCategory") === null) {
-  window.location.href = "index.html";
-} else {
+let category = "";
+let quizQuestions = [];
+let currentQuestion = 0;
+let score = 0;
+
+// Check if Category exists & Init Quiz
+if (localStorage.getItem("selectedCategory") !== null) {
+
   category = localStorage.getItem("selectedCategory");
-  startQuiz();
+
+  // If Quiz not started, generate new question Array.
+  if (currentQuestion === 0) {
+    generateQuestions(category);
+
+  } else {
+
+    // Get from localstorage
+    quizQuestions = localStorage.getItem('quizQuestions');
+    quizQuestions = JSON.parse(quizQuestions);
+  }
+} else {
+  window.location.href = "index.html";
 }
 
 // Fetch questions depending on category
@@ -15,7 +30,7 @@ async function fetchQuestions(category) {
     const response = await fetch(`assets/data/${category}.json`);
 
     if (!response.ok) {
-        throw new Error("Failed to load questions");
+      throw new Error("Failed to load questions");
     }
 
     const data = await response.json();
@@ -27,7 +42,10 @@ async function fetchQuestions(category) {
 }
 
 // Init Quiz
-async function startQuiz() {
+async function generateQuestions(category) {
   quizQuestions = await fetchQuestions(category);
-  console.log("Questions loaded:", quizQuestions);
+  quizQuestions = shuffleArray(quizQuestions);
+
+  // Store in localstorage
+  localStorage.setItem('quizQuestions', JSON.stringify(quizQuestions));
 }
