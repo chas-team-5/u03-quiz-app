@@ -54,6 +54,18 @@
   color: transparent;
 }
 
+.answer__continue {
+
+}
+
+.answer__continue--correct {
+
+}
+
+.answer__continue--incorrect {
+  
+}
+
 /* BUTTONS */
 
 .answer__button-container {
@@ -69,7 +81,6 @@
   border: 3px solid var(--color-black-absolute);
   border-radius: 1.5rem;
   cursor: pointer;
-  /* text-align: center; */
   background-color: var(--color-white);
 }
 
