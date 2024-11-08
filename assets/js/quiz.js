@@ -1,14 +1,12 @@
 import {shuffleArray} from "./utils/helpers.js"
 
-let category = "";
+let category = localStorage.getItem("selectedCategory");
 let quizQuestions = [];
 let currentQuestion = 0; // Change this to test Quiz init vs Localstorage
 let score = 0;
 
 // Check if Category exists & Init Quiz
-if (localStorage.getItem("selectedCategory") !== null) {
-
-  category = localStorage.getItem("selectedCategory");
+if (category) {
 
   // If Quiz not started, generate new question Array.
   if (currentQuestion === 0) {
