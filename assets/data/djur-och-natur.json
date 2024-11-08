@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "Vilket av följande djur är det snabbaste på land?",
+    "options": ["Gepard", "Lejon", "Struts", "Kanin"],
+    "correctAnswer": 0
+  },
+  {
+    "id": 2,
+    "question": "Vilket av följande djur är känt för att kunna ändra färg?",
+    "options": ["Kameleont", "Hund", "Elefant", "Lejon"],
+    "correctAnswer": 0
+  },
+  {
+    "id": 3,
+    "question": "Vilket av följande träd är en vanlig symbol för Sverige?",
+    "options": ["Ek", "Björk", "Gran", "Tall"],
+    "correctAnswer": 1
+  },
+  {
+    "id": 4,
+    "question": "Vilken av följande arter är känd för att ha det starkaste bettet?",
+    "options": ["Lejon", "Krokodil", "Tiger", "Hyena"],
+    "correctAnswer": 1
+  },
+  {
+    "id": 5,
+    "question": "Vad kallas det område där ett djur naturligt lever och frodas?",
+    "options": ["Habitat", "Biotop", "Territorium", "Nisch"],
+    "correctAnswer": 0
+  },
+  {
+    "id": 6,
+    "question": "Vilket av följande djur kan flyga bakåt?",
+    "options": ["Kolibri", "Höna", "Uggla", "Duv"],
+    "correctAnswer": 0
+  },
+  {
+    "id": 7,
+    "question": "Vilken typ av ekosystem domineras av stora träd och riklig vegetation?",
+    "options": ["Öken", "Savann", "Regnskog", "Tundra"],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Vad kallas det största landlevande djuret?",
+    "options": ["Noshörning", "Elefant", "Giraff", "Isbjörn"],
+    "correctAnswer": 1
+  },
+  {
+    "id": 9,
+    "question": "Vilket av följande djur är känt för sina långdistansflygningar?",
+    "options": ["Sparv", "Svala", "Kolibri", "Kaja"],
+    "correctAnswer": 1
+  },
+  {
+    "id": 10,
+    "question": "Vilken typ av växt är känd för att överleva i extrema miljöer, som till exempel öknen?",
+    "options": ["Kaktus", "Orkidé", "Barrträd", "Ros"],
+    "correctAnswer": 0
+  }
+]
