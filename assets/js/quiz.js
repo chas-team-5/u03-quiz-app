@@ -1,53 +1,63 @@
-import {shuffleArray} from "./utils/helpers.js"
+import { fetchQuestions } from "./services/fetchQuestions.js";
+import { shuffleArray } from "./utils/helpers.js";
 
-let category = localStorage.getItem("selectedCategory");
-let quizQuestions = [];
-let currentQuestion = 0; // Change this to test Quiz init vs Localstorage
+const stepsCurrent = document.getElementById("steps-current");
+const stepsTotal = document.getElementById("steps-total");
+const questionText = document.getElementById("question-text");
+const answerOptionsElement = document.getElementById("answer-options");
+
 let score = 0;
+let currentQuestion = 0;
+let category = localStorage.getItem("selectedCategory");
+let storedQuizQuestions = localStorage.getItem('quizQuestions');
+let quizQuestions = storedQuizQuestions ? JSON.parse(storedQuizQuestions) : [];
+let answerOptions = [];
 
-// Check if Category exists & Init Quiz
+// Start Quiz if Category else redirect to home
 if (category) {
 
-  // If Quiz not started, generate new question Array.
-  if (currentQuestion === 0) {
+  // Generate new questions if quizQuestions[] is empty
+  if (!quizQuestions.length) {
     generateQuestions(category);
-
   } else {
+    printQuestion();
+    printAnswers();
+  };
 
-    // Get from localstorage
-    quizQuestions = localStorage.getItem('quizQuestions');
-    quizQuestions = JSON.parse(quizQuestions);
-
-    console.log("Localstored array: ", quizQuestions);
-  }
 } else {
   window.location.href = "index.html";
 }
 
-// Fetch questions depending on category
-async function fetchQuestions(category) {
-  try {
-    const response = await fetch(`assets/data/${category}.json`);
-
-    if (!response.ok) {
-      throw new Error("Failed to load questions");
-    }
-
-    const data = await response.json();
-    return data;
-
-  } catch (error) {
-      console.error("Error fetching questions:", error);
-  }
-}
-
-// Init Quiz
+// Generate new questions
 async function generateQuestions(category) {
   quizQuestions = await fetchQuestions(category);
   quizQuestions = shuffleArray(quizQuestions);
+  printQuestion();
+  printAnswers();
 
-  console.log("Manipulated array: ", quizQuestions);
-
-  // Store in localstorage
   localStorage.setItem('quizQuestions', JSON.stringify(quizQuestions));
 }
+
+function printQuestion() {
+  stepsCurrent.textContent = currentQuestion + 1;
+  questionText.textContent = quizQuestions[currentQuestion].question;
+  stepsTotal.textContent = quizQuestions.length;
+}
+
+function printAnswers() {
+  answerOptions = quizQuestions[currentQuestion].options;
+
+  answerOptions.forEach((item, index) => {
+    const option = document.createElement("button");
+    option.classList.add("answer-option");
+    option.textContent = answerOptions[index];
+
+    if (index === quizQuestions[currentQuestion].correctAnswer) {
+      option.setAttribute("data-answer", "correct");
+    }
+
+    answerOptionsElement.appendChild(option)
+  });
+}
+
+answerOptionsElement.addEventListener("click", printAnswers);
