@@ -12,15 +12,15 @@ function selectCategory(e) {
 }
 
 function saveProgress() {
-    localStorage.setItem('questions', JSON.stringify(questions));
-    localStorage.setItem('currentQuestion', currentQuestion);
-    localStorage.setItem('score', score);
+  localStorage.setItem('questions', JSON.stringify(questions));
+  localStorage.setItem('currentQuestion', currentQuestion);
+  localStorage.setItem('score', score);
 }
 
 function loadProgress() {
-    const saveQuestions = localStorage.getItem('questions');
-    const savedCurrentQuestion = localStorage.getItem('currentQuestion');
-    const savedScore = localStorage.getItem('score');
+  questions = localStorage.getItem('questions');
+  currentQuestion = localStorage.getItem('currentQuestion');
+  score = localStorage.getItem('score');
 }
 
 startGame.addEventListener("click", selectCategory);
