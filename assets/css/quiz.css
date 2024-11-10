@@ -55,15 +55,11 @@
 }
 
 .answer__continue {
-
-}
-
-.answer__continue--correct {
-
+  color: var(--color-correct);
 }
 
 .answer__continue--incorrect {
-  
+  color: var(--color-incorrect);
 }
 
 /* BUTTONS */
