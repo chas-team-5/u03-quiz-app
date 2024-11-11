@@ -1,3 +1,4 @@
+// ? DO we need to initialize empty string or can this be done in function?
 let category = '';
 
 // Set Category
