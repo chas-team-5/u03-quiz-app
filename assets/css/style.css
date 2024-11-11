@@ -24,11 +24,17 @@ header {
   text-align: center;
 }
 
+h1 {
+  font-size: var(--font-size-heading-lg);
+}
+
 h2 {
+  font-size: var(--font-size-heading-sm);
   font-weight: 600;
 }
 
 h4 {
+  font-size: var(--font-size-sm);
   font-weight: 400;
   color: var(--color-gray-dark);
 }
