@@ -23,13 +23,13 @@
     <section class="stepper">
       <h4 id="stepperReadout">Question x / n</h4>
 
-      <!-- Lista med ikoner -->
+      <!-- List of icons -->
       <ul class="stepper__list-of-indicators">
 
         <!-- Toggle unanswered/correct/incorrect -->
         <li class="stepper__indicator stepper__indicator--correct">
 
-          <!-- Updatera ikon baserat på class -->
+          <!-- Update icon based on class -->
           <i class="fas fa-circle-check"></i>
         </li>
         <li class="stepper__indicator stepper__indicator--incorrect">
@@ -71,23 +71,23 @@
     </section>
 
     <section class="answer">
-      <!-- Uppdatera text och/eller bakgrund baserat på timer -->
-      <h4 class="answer__timer">
+      <!-- Update text and/or background based on timer -->
+      <h4 class="answer__timer hidden">
         Du har
         <span id="timeRemaining">timeRemaining</span>
         på dig att svara
       </h4>
 
       <!-- Toggle hidden/visible -->
-      <h4 class="answer__continue hidden">
+      <h4 class="answer__continue">
         <span id="questionAnswer">isCorrect?</span>
         Klicka för att gå vidare
       </h4>
 
       <div class="answer__button-container">
-        <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
-        <!-- Möjligen Button istället för Div -->
-        <div class="answer__button" id="answerA">Kameleont</div>
+        <!-- answer__button--correct answer__button--incorrect answer__button--selected -->
+        <!-- Possible Button istead of Div -->
+        <div class="answer__button answer__button--correct answer__button--selected" id="answerA">Kameleont</div>
         <div class="answer__button" id="answerB">Gepard</div>
         <div class="answer__button" id="answerC">Elefant</div>
         <div class="answer__button" id="answerD">Pingvin</div>

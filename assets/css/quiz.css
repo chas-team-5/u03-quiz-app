@@ -54,6 +54,14 @@
   color: transparent;
 }
 
+.answer__continue {
+  color: var(--color-correct);
+}
+
+.answer__continue--incorrect {
+  color: var(--color-incorrect);
+}
+
 /* BUTTONS */
 
 .answer__button-container {
@@ -66,9 +74,29 @@
 
 .answer__button {
   padding: 1rem 2rem;
-  border: 2px solid var(--color-black-absolute);
+  border: 3px solid var(--color-black-absolute);
   border-radius: 1.5rem;
   cursor: pointer;
-  /* text-align: center; */
   background-color: var(--color-white);
 }
+
+.answer__button--selected {
+  background-color: var(--color-black-absolute);
+  color: var(--color-white);
+}
+
+.answer__button--correct {
+  box-shadow: 0 0 0 5px var(--color-correct);
+  border-color: var(--color-correct);
+}
+
+.answer__button--incorrect {
+  box-shadow: 0 0 0 5px var(--color-incorrect);
+  border-color: var(--color-incorrect);
+}
+
+/* Optional */
+
+/* .answer__button--inactive {
+  opacity: 0.5;
+} */
