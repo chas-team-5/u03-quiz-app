@@ -1,6 +1,6 @@
 import { setCategory } from './services/categoryHandler.js';
 
-const startGame = document.getElementById("start-game-section");
+const startGame = document.getElementById("categorySelection");
 
 function selectCategory(e) {
   setCategory(e);
