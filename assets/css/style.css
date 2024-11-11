@@ -1,5 +1,6 @@
 @import url(./utils/reset.css);
 @import url(./utils/variables.css);
+@import url(./index.css);
 @import url(./quiz.css);
 @import url(./utils/helper.css);
 
