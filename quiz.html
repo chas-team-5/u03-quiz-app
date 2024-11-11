@@ -25,13 +25,13 @@
         Fråga <output id="steps-current"></output> av <output id="steps-total"></output>
       </p>
 
-      <!-- Lista med ikoner -->
+      <!-- List of icons -->
       <ul class="stepper__list-of-indicators">
 
         <!-- Toggle unanswered/correct/incorrect -->
         <li class="stepper__indicator stepper__indicator--correct">
 
-          <!-- Updatera ikon baserat på class -->
+          <!-- Update icon based on class -->
           <i class="fas fa-circle-check"></i>
         </li>
         <li class="stepper__indicator stepper__indicator--incorrect">
@@ -71,15 +71,15 @@
     </section>
 
     <section class="answer">
-      <!-- Uppdatera text och/eller bakgrund baserat på timer -->
-      <h4 class="answer__timer">
+      <!-- Update text and/or background based on timer -->
+      <h4 class="answer__timer hidden">
         Du har
         <span id="timeRemaining">timeRemaining</span>
         på dig att svara
       </h4>
 
       <!-- Toggle hidden/visible -->
-      <h4 class="answer__continue hidden">
+      <h4 class="answer__continue">
         <span id="questionAnswer">isCorrect?</span>
         Klicka för att gå vidare
       </h4>
