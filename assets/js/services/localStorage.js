@@ -1,17 +1,23 @@
-function saveProgress(score, currentStep, quizQuestions) {
-  localStorage.setItem('currentScore', score);
+function saveQuiz(score, currentStep, questions) {
+  localStorage.setItem('score', score);
   localStorage.setItem('currentQuestion', currentStep);
-  localStorage.setItem('quizQuestions', JSON.stringify(quizQuestions));
+  localStorage.setItem('questions', JSON.stringify(questions));
 }
 
-function resetProgress() {
-  localStorage.setItem('currentScore', 0);
+function resetSavedQuiz() {
+  localStorage.setItem('score', 0);
   localStorage.setItem('currentQuestion', 0);
-  localStorage.setItem('quizQuestions', []);
+  localStorage.setItem('questions', JSON.stringify([]));
 }
 
 function loadProgress() {
-  console.log("LOADED!");
+  const score = parseInt(localStorage.getItem("score")) || 0;
+  const currentStep = parseInt(localStorage.getItem("currentQuestion")) || 0;
+  const questions = localStorage.getItem("questions")
+    ? JSON.parse(localStorage.getItem("questions"))
+    : [];
+
+  return { score, currentStep, questions };
 }
 
-export { saveProgress, resetProgress, loadProgress }
+export { saveQuiz, resetSavedQuiz, loadProgress }

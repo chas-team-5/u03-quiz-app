@@ -1,37 +1,28 @@
-import { saveProgress, loadProgress, resetProgress } from "./services/localStorage.js";
+import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
-import { shuffleArray } from "./utils/helpers.js";
+import { shuffleArray, redirectToStartPage } from "./utils/helpers.js";
 
+const quizLength = 10;
 const stepsCurrent = document.getElementById("steps-current");
 const stepsTotal = document.getElementById("steps-total");
 const questionText = document.getElementById("question-text");
 const answerOptionsElement = document.getElementById("answer-options");
 
-let score = 0;
-let storedCurrentStep = localStorage.getItem('currentQuestion');
-let currentStep = storedCurrentStep ? JSON.parse(storedCurrentStep) : 0;
 let category = localStorage.getItem("selectedCategory");
-let storedQuizQuestions = localStorage.getItem('quizQuestions');
-let quizQuestions = storedQuizQuestions ? JSON.parse(storedQuizQuestions) : [];
-
-// Generate new questions
-async function generateQuestions(category) {
-  quizQuestions = await fetchQuestions(category);
-  quizQuestions = shuffleArray(quizQuestions);
-  printQuestion();
-  printAnswers();
-
-  localStorage.setItem('quizQuestions', JSON.stringify(quizQuestions));
-}
+let { score, currentStep, questions } = loadProgress();
 
 function printQuestion() {
+  if (!questions[currentStep]) return;
+
   stepsCurrent.textContent = currentStep + 1;
-  questionText.textContent = quizQuestions[currentStep].question;
-  stepsTotal.textContent = quizQuestions.length;
+  questionText.textContent = questions[currentStep].question;
+  stepsTotal.textContent = quizLength;
 }
 
 function printAnswers() {
-  let answerOptions = quizQuestions[currentStep].options.map((option, index) => ({
+  if (!questions[currentStep]) return;
+
+  let answerOptions = questions[currentStep].options.map((option, index) => ({
     text: option,
     optionIndex: index
   }));
@@ -49,37 +40,42 @@ function printAnswers() {
   });
 }
 
-// Start Quiz if Category else redirect to home
-if (category) {
+async function generateQuestions(category) {
+  questions = shuffleArray( await fetchQuestions(category) );
+  saveQuiz(score, currentStep, questions)
+  printQuestion();
+  printAnswers();
+}
 
-  // Generate new questions if quizQuestions[] is empty
-  if (!quizQuestions.length) {
-    generateQuestions(category);
-  } else {
+// Start Quiz if category is set
+function startQuiz() {
+  if (category) {
+    if (!questions.length) {
+      generateQuestions(category);
+      return;
+    }
 
     printQuestion();
     printAnswers();
-  };
 
-} else {
-  window.location.href = "index.html";
+  } else {
+    redirectToStartPage();
+  }
 }
 
 function checkAnswer(e) {
   e.preventDefault();
 
-  let correctAnswer = quizQuestions[currentStep].correctAnswer;
-  let userAnswer;
-
   if (e.target.tagName === "BUTTON") {
-    userAnswer = parseInt(e.target.dataset.id);
+    let userAnswer = parseInt(e.target.dataset.id);
+    let correctAnswer = questions[currentStep].correctAnswer;
 
     if (userAnswer === correctAnswer) {
-      userAnswer === correctAnswer && console.log("Correct!");
+      console.log("Correct!");
       score++;
     }
 
-    if (currentStep < 9) {
+    if (currentStep < quizLength - 1) {
       currentStep++;
       console.log("STEP: ", currentStep);
 
@@ -90,11 +86,12 @@ function checkAnswer(e) {
       window.location.href = "index.html";
     }
 
-    saveProgress(score, currentStep, quizQuestions);
-
-
+    saveQuiz(score, currentStep, questions);
     console.log("Score: ", score);
   }
 }
 
 answerOptionsElement.addEventListener("click", checkAnswer);
+
+// Run this after loader
+startQuiz();

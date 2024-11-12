@@ -1,14 +1,12 @@
-let category = '';
+let category = "";
 
-// Set Category
 function setCategory(e) {
   category = e.target.getAttribute("data-category");
-  saveCategory(category)
+  saveCategory(category);
 }
 
-// Save Category to Localstorage
 function saveCategory(category) {
-  localStorage.setItem('selectedCategory', category);
+  localStorage.setItem("selectedCategory", category);
 }
 
-export {setCategory}
+export { setCategory }

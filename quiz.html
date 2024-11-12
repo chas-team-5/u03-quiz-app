@@ -72,19 +72,24 @@
 
     <section class="answer">
       <!-- Update text and/or background based on timer -->
-      <h4 class="answer__timer hidden">
+      <h4 class="answer__timer">
         Du har
         <span id="timeRemaining">timeRemaining</span>
         på dig att svara
       </h4>
 
-      <!-- Toggle hidden/visible -->
-      <h4 class="answer__continue">
+      <h4 class="answer__continue hidden">
         <span id="questionAnswer">isCorrect?</span>
         Klicka för att gå vidare
       </h4>
 
       <div id="answer-options">
+        <!-- Toggle hidden/visible -->
+        <p class="answer__continue">
+          <span id="questionAnswer">isCorrect?</span>
+          Klicka för att gå vidare
+        </p>
+
         <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
       </div>
     </section>
