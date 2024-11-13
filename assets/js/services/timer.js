@@ -1,10 +1,12 @@
-let countdown;
-let timer;
+
+let timeOut;
+let countdownInterval;
+let countdownInitialTime = 20;
 
 function startTimer(countdownDisplay) {
-  clearInterval(countdown);
-  clearTimeout(timer);
-  let timeLeft = parseInt(localStorage.getItem('countdownTime')) || 20;
+  clearInterval(countdownInterval);
+  clearTimeout(timeOut);
+  let timeLeft = parseInt(localStorage.getItem('countdownTime')) || countdownInitialTime;
 
   printCountdown();
 
@@ -15,13 +17,13 @@ function startTimer(countdownDisplay) {
     localStorage.setItem('countdownTime', timeLeft);
 
     if (timeLeft < 0) {
-      clearInterval(countdown);
+      clearInterval(countdownInterval);
       handleTimeout(countdownDisplay);
     }
   }
 
-  countdown = setInterval(printCountdown, 1000);
-  timer = setTimeout(() => handleTimeout(countdownDisplay), 20000);
+  countdownInterval = setInterval(printCountdown, 1000);
+  timeOut = setTimeout(() => handleTimeout(countdownDisplay), countdownInitialTime * 1000);
 }
 
 function handleTimeout(countdownDisplay) {
@@ -29,4 +31,4 @@ function handleTimeout(countdownDisplay) {
   localStorage.removeItem('countdownTime');
 }
 
-export { countdown, timer, startTimer };
+export { timeOut, countdownInterval, countdownInitialTime, startTimer };

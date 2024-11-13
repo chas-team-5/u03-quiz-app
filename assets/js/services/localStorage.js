@@ -1,3 +1,5 @@
+import { countdownInitialTime } from "./timer.js"
+
 function saveQuiz(score, currentStep, questions) {
   localStorage.setItem("score", score);
   localStorage.setItem("currentQuestion", currentStep);
@@ -8,7 +10,7 @@ function resetSavedQuiz() {
   localStorage.setItem("score", 0);
   localStorage.setItem("currentQuestion", 0);
   localStorage.setItem("questions", JSON.stringify([]));
-  localStorage.setItem('countdownTime', 20);
+  localStorage.setItem('countdownTime', countdownInitialTime);
 }
 
 function loadProgress() {
