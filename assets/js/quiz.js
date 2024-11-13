@@ -1,53 +1,97 @@
-import {shuffleArray} from "./utils/helpers.js"
+import { loadProgress, saveQuiz } from "./services/localStorage.js";
+import { fetchQuestions } from "./services/fetchQuestions.js";
+import { shuffleArray, redirectToStartPage } from "./utils/helpers.js";
+
+const quizLength = 10;
+const stepsCurrent = document.getElementById("steps-current");
+const stepsTotal = document.getElementById("steps-total");
+const questionText = document.getElementById("question-text");
+const answerOptionsElement = document.getElementById("answer-options");
 
 let category = localStorage.getItem("selectedCategory");
-let quizQuestions = [];
-let currentQuestion = 0; // Change this to test Quiz init vs Localstorage
-let score = 0;
+let { score, currentStep, questions } = loadProgress();
 
-// Check if Category exists & Init Quiz
-if (category) {
+function printQuestion() {
+  if (!questions[currentStep]) return;
 
-  // If Quiz not started, generate new question Array.
-  if (currentQuestion === 0) {
-    generateQuestions(category);
-
-  } else {
-
-    // Get from localstorage
-    quizQuestions = localStorage.getItem('quizQuestions');
-    quizQuestions = JSON.parse(quizQuestions);
-
-    console.log("Localstored array: ", quizQuestions);
-  }
-} else {
-  window.location.href = "index.html";
+  stepsCurrent.textContent = currentStep + 1;
+  questionText.textContent = questions[currentStep].question;
+  stepsTotal.textContent = quizLength;
 }
 
-// Fetch questions depending on category
-async function fetchQuestions(category) {
-  try {
-    const response = await fetch(`assets/data/${category}.json`);
+function printAnswers() {
+  if (!questions[currentStep]) return;
 
-    if (!response.ok) {
-      throw new Error("Failed to load questions");
+  let answerOptions = questions[currentStep].options.map((option, index) => ({
+    text: option,
+    optionIndex: index
+  }));
+
+  answerOptionsElement.innerHTML = "";
+  answerOptions = shuffleArray(answerOptions);
+
+  answerOptions.forEach((item) => {
+    const option = document.createElement("button");
+    option.classList.add("answer-option");
+    option.textContent = item.text;
+    option.setAttribute("data-id", item.optionIndex);
+
+    answerOptionsElement.appendChild(option);
+  });
+}
+
+async function generateQuestions(category) {
+  questions = shuffleArray( await fetchQuestions(category) );
+  saveQuiz(score, currentStep, questions)
+  printQuestion();
+  printAnswers();
+}
+
+// Start Quiz if category is set
+function startQuiz() {
+  if (category) {
+    if (!questions.length) {
+      generateQuestions(category);
+      return;
     }
 
-    const data = await response.json();
-    return data;
+    printQuestion();
+    printAnswers();
 
-  } catch (error) {
-      console.error("Error fetching questions:", error);
+  } else {
+    redirectToStartPage();
   }
 }
 
-// Init Quiz
-async function generateQuestions(category) {
-  quizQuestions = await fetchQuestions(category);
-  quizQuestions = shuffleArray(quizQuestions);
+function checkAnswer(e) {
+  e.preventDefault();
 
-  console.log("Manipulated array: ", quizQuestions);
+  if (e.target.tagName === "BUTTON") {
+    let userAnswer = parseInt(e.target.dataset.id);
+    let correctAnswer = questions[currentStep].correctAnswer;
 
-  // Store in localstorage
-  localStorage.setItem('quizQuestions', JSON.stringify(quizQuestions));
+    if (userAnswer === correctAnswer) {
+      console.log("Correct!");
+      score++;
+    }
+
+    if (currentStep < quizLength - 1) {
+      currentStep++;
+      console.log("STEP: ", currentStep);
+
+      // Move this to on click next
+      printQuestion();
+      printAnswers();
+    } else {
+      window.location.href = "index.html";
+    }
+
+    saveQuiz(score, currentStep, questions);
+    console.log("Score: ", score);
+  }
 }
+
+answerOptionsElement.addEventListener("click", checkAnswer);
+
+// Run this after loader
+startQuiz();

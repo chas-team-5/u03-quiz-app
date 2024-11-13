@@ -54,14 +54,14 @@
 
 /* BUTTONS */
 
-.answer__button-container {
+#answer-options {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-sm);
 }
 
-.answer__button {
+.answer-option {
   padding: 1rem 2rem;
   border: 3px solid var(--color-black-absolute);
   border-radius: 1.5rem;
