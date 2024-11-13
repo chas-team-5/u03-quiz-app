@@ -1,28 +1,32 @@
 let countdown;
 let timer;
 
-function startTimer(countdownDisplay, handleTimeout) {
+function startTimer(countdownDisplay) {
   clearInterval(countdown);
   clearTimeout(timer);
-  let countdownTime = 20;
+  let timeLeft = parseInt(localStorage.getItem('countdownTime')) || 20;
 
   printCountdown();
 
   function printCountdown() {
-    countdownDisplay.textContent = `Tid kvar: ${countdownTime} sekunder`;
-    countdownTime--;
+    countdownDisplay.textContent = `Tid kvar: ${timeLeft} sekunder`;
+    timeLeft--;
 
-    if (countdownTime < 0) {
+    localStorage.setItem('countdownTime', timeLeft);
+
+    if (timeLeft < 0) {
       clearInterval(countdown);
+      handleTimeout(countdownDisplay);
     }
   }
 
   countdown = setInterval(printCountdown, 1000);
-  timer = setTimeout(handleTimeout, 20000);
+  timer = setTimeout(() => handleTimeout(countdownDisplay), 20000);
 }
 
-function handleTimeout() {
-  console.log("Tiden är ute!");
+function handleTimeout(countdownDisplay) {
+  countdownDisplay.textContent = "Inget svar! Klicka för att gå vidare";
+  localStorage.removeItem('countdownTime');
 }
 
-export { countdown, timer, startTimer, handleTimeout };
+export { countdown, timer, startTimer };
