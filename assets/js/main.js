@@ -1,10 +1,13 @@
 import { setCategory } from './services/categoryHandler.js';
 
-const startGame = document.getElementById("start-game-section");
+const startGame = document.getElementById("categorySelection");
 
+// Added if statement to ensure questions aren't loaded without a selected catagory
 function selectCategory(e) {
-  setCategory(e);
-  window.location.href = "quiz.html";
+  if (e.target.getAttribute("data-category") !== null) {
+    setCategory(e);
+    window.location.href = "quiz.html";
+  }
 }
 
 // TODO: This block should be moved to Quiz.js

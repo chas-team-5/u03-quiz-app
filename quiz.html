@@ -20,79 +20,73 @@
   </header>
 
   <article class="quiz">
-    <section class="stepper">
-      <h4 id="stepperReadout">Question x / n</h4>
+    <p class="stepper-readout" id="stepperReadout">Question x / n</p>
 
-      <!-- List of icons -->
-      <ul class="stepper__list-of-indicators">
+    <!-- List of icons -->
+    <ul class="stepper__list-of-indicators">
 
-        <!-- Toggle unanswered/correct/incorrect -->
-        <li class="stepper__indicator stepper__indicator--correct">
+      <!-- Toggle unanswered/correct/incorrect -->
+      <li class="stepper__indicator stepper__indicator--correct">
 
-          <!-- Update icon based on class -->
-          <i class="fas fa-circle-check"></i>
-        </li>
-        <li class="stepper__indicator stepper__indicator--incorrect">
-          <i class="fas fa-circle-xmark"></i>
-        </li>
-        <li class="stepper__indicator stepper__indicator--incorrect">
-          <i class="fas fa-circle-xmark"></i>
-        </li>
-        <li class="stepper__indicator stepper__indicator--correct">
-          <i class="fas fa-circle-check"></i>
-        </li>
-        <li class="stepper__indicator">
-          <i class="fas fa-circle"></i>
-        </li>
-        <li class="stepper__indicator">
-          <i class="fas fa-circle"></i>
-        </li>
-        <li class="stepper__indicator">
-          <i class="fas fa-circle"></i>
-        </li>
-        <li class="stepper__indicator">
-          <i class="fas fa-circle"></i>
-        </li>
-        <li class="stepper__indicator">
-          <i class="fas fa-circle"></i>
-        </li>
-        <li class="stepper__indicator">
-          <i class="fas fa-circle"></i>
-        </li>
-      </ul>
-    </section>
+        <!-- Update icon based on class -->
+        <i class="fas fa-circle-check"></i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--incorrect">
+        <i class="fas fa-circle-xmark"></i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--incorrect">
+        <i class="fas fa-circle-xmark"></i>
+      </li>
+      <li class="stepper__indicator stepper__indicator--correct">
+        <i class="fas fa-circle-check"></i>
+      </li>
+      <li class="stepper__indicator">
+        <i class="fas fa-circle"></i>
+      </li>
+      <li class="stepper__indicator">
+        <i class="fas fa-circle"></i>
+      </li>
+      <li class="stepper__indicator">
+        <i class="fas fa-circle"></i>
+      </li>
+      <li class="stepper__indicator">
+        <i class="fas fa-circle"></i>
+      </li>
+      <li class="stepper__indicator">
+        <i class="fas fa-circle"></i>
+      </li>
+      <li class="stepper__indicator">
+        <i class="fas fa-circle"></i>
+      </li>
+    </ul>
 
-    <section class="question">
-      <img class="question-img" src="#" alt="question-image">
+    <img class="question-img" src="#" alt="question-image">
 
-      <h2 id="questionText">
-        Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
-      </h2>
-    </section>
+    <h2 id="questionText">
+      Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
+    </h2>
 
-    <section class="answer">
-      <!-- Update text and/or background based on timer -->
-      <h4 class="answer__timer hidden">
-        Du har
-        <span id="timeRemaining">timeRemaining</span>
-        på dig att svara
-      </h4>
+    <!-- Update text and/or background based on timer -->
+    <p class="answer__timer">
+      Du har
+      <span id="timeRemaining">timeRemaining</span>
+      på dig att svara
+    </p>
 
-      <!-- Toggle hidden/visible -->
-      <h4 class="answer__continue">
-        <span id="questionAnswer">isCorrect?</span>
-        Klicka för att gå vidare
-      </h4>
+    <!-- Toggle hidden/visible -->
+    <p class="answer__continue hidden">
+      <span id="questionAnswer">isCorrect?</span>
+      Klicka för att gå vidare
+    </p>
 
-      <div class="answer__button-container">
-        <!-- answer__button--correct answer__button--incorrect answer__button--selected -->
-        <!-- Possible Button istead of Div -->
-        <div class="answer__button answer__button--correct answer__button--selected" id="answerA">Kameleont</div>
-        <div class="answer__button" id="answerB">Gepard</div>
-        <div class="answer__button" id="answerC">Elefant</div>
-        <div class="answer__button" id="answerD">Pingvin</div>
-      </div>
-    </section>
+    <div class="answer__button-container">
+      <!-- answer__button--correct answer__button--incorrect answer__button--selected -->
+      <!-- Possible Button istead of Div -->
+      <div class="answer__button answer__button--correct answer__button--selected" id="answerA">Kameleont</div>
+      <div class="answer__button" id="answerB">Gepard</div>
+      <div class="answer__button" id="answerC">Elefant</div>
+      <div class="answer__button" id="answerD">Pingvin</div>
+    </div>
   </article>
 </body>
 

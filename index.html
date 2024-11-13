@@ -15,7 +15,9 @@
     <img class="header-logo" src="./assets/svg/logo.svg" alt="logo">
   </header>
 
-    <main>
+    <main class="content">
+			<img class="index-img" src="#" alt="index-image">
+
 			<section class="text-section">
 				<h1>Hitta ditt inre - gör vårt quiz</h1>
 				<p>Upptäck ditt perfekta quiz och vem du är på riktigt!
@@ -24,10 +26,12 @@
 					Gör quizet nu och se hur många poäng du kan få!</p>
 			</section>
 
-			<section id="start-game-section">
+			<section class="start-game-section">
 				<h2>Välj kategori för att starta</h2>
-				<button class="cta" data-category="djur-och-natur">Djur och natur</button>
-				<button class="cta" data-category="teknikens-varld">Teknik</button>
+				<div class="button-container" id="categorySelection">
+					<button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
+					<button class="cta" type="button" data-category="teknikens-varld">Teknik</button>
+				</div>
 			</section>
     </main>
 </body>
