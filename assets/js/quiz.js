@@ -1,7 +1,7 @@
 import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
 import { shuffleArray, redirectToStartPage } from "./utils/helpers.js";
-import { startTimer } from "./services/timer.js";
+import { startTimer, countdownInitialTime } from "./services/timer.js";
 
 const stepsCurrent = document.getElementById("steps-current");
 const stepsTotal = document.getElementById("steps-total");
@@ -10,7 +10,7 @@ const answerOptionsDisplay = document.getElementById("answer-options");
 const countdownDisplay = document.getElementById("countdown");
 
 const quizLength = 10;
-const countdownTime = 20;
+const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
 let { score, currentStep, questions } = loadProgress();
 

@@ -1,4 +1,4 @@
-import { countdownInitialTime } from "./timer.js"
+import { countdownInitialTime } from "./timer.js";
 
 function saveQuiz(score, currentStep, questions) {
   localStorage.setItem("score", score);
