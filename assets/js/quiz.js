@@ -1,15 +1,65 @@
 import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
 import { shuffleArray, redirectToStartPage } from "./utils/helpers.js";
+import { startTimer, countdownInitialTime } from "./services/timer.js";
 
-const quizLength = 10;
 const stepsCurrent = document.getElementById("steps-current");
 const stepsTotal = document.getElementById("steps-total");
 const questionText = document.getElementById("question-text");
-const answerOptionsElement = document.getElementById("answer-options");
+const answerOptionsDisplay = document.getElementById("answer-options");
+const countdownDisplay = document.getElementById("countdown");
+const progressDisplay = document.getElementById("progress");
 
+const quizLength = 10;
+const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
-let { score, currentStep, questions } = loadProgress();
+let { score, currentStep, questions, quizProgress } = loadProgress(quizLength);
+
+async function generateQuestions(category) {
+  questions = shuffleArray( await fetchQuestions(category) );
+  saveQuiz(score, currentStep, questions, quizProgress);
+  printProgress();
+  printQuestion();
+  printAnswers();
+}
+
+// Start Quiz if category is set
+async function startQuiz() {
+  if (category) {
+    if (!questions.length) {
+      await generateQuestions(category);
+    }
+
+    printProgress();
+    printQuestion();
+    printAnswers();
+    startTimer(countdownDisplay);
+
+  } else {
+    redirectToStartPage();
+  }
+}
+
+function printProgress() {
+  progressDisplay.innerHTML = "";
+
+  quizProgress.forEach((step) => {
+    const li = document.createElement("li");
+    li.classList.add(`progress-answer--${step}`);
+
+    if (step === "correct") {
+      li.innerHTML = `<i class="fas fa-circle-check"></i>`
+
+    } else if (step === "incorrect") {
+      li.innerHTML = `<i class="fas fa-circle-xmark"></i>`
+
+    } else {
+      li.innerHTML = `<i class="fas fa-circle"></i>`
+    }
+
+    progressDisplay.appendChild(li);
+  });
+}
 
 function printQuestion() {
   if (!questions[currentStep]) return;
@@ -27,7 +77,7 @@ function printAnswers() {
     optionIndex: index
   }));
 
-  answerOptionsElement.innerHTML = "";
+  answerOptionsDisplay.innerHTML = "";
   answerOptions = shuffleArray(answerOptions);
 
   answerOptions.forEach((item) => {
@@ -36,31 +86,8 @@ function printAnswers() {
     option.textContent = item.text;
     option.setAttribute("data-id", item.optionIndex);
 
-    answerOptionsElement.appendChild(option);
+    answerOptionsDisplay.appendChild(option);
   });
-}
-
-async function generateQuestions(category) {
-  questions = shuffleArray( await fetchQuestions(category) );
-  saveQuiz(score, currentStep, questions)
-  printQuestion();
-  printAnswers();
-}
-
-// Start Quiz if category is set
-function startQuiz() {
-  if (category) {
-    if (!questions.length) {
-      generateQuestions(category);
-      return;
-    }
-
-    printQuestion();
-    printAnswers();
-
-  } else {
-    redirectToStartPage();
-  }
 }
 
 function checkAnswer(e) {
@@ -70,28 +97,38 @@ function checkAnswer(e) {
     let userAnswer = parseInt(e.target.dataset.id);
     let correctAnswer = questions[currentStep].correctAnswer;
 
+    // Update score
     if (userAnswer === correctAnswer) {
-      console.log("Correct!");
+      quizProgress[currentStep] = "correct";
       score++;
+    } else {
+      quizProgress[currentStep] = "incorrect";
     }
 
+    // Update step
     if (currentStep < quizLength - 1) {
       currentStep++;
-      console.log("STEP: ", currentStep);
-
-      // Move this to on click next
-      printQuestion();
-      printAnswers();
+      proceedToNext();
     } else {
-      window.location.href = "index.html";
+
+      // To result on quiz end
+      window.location.href = "result.html";
     }
 
-    saveQuiz(score, currentStep, questions);
+    saveQuiz(score, currentStep, questions, quizProgress);
     console.log("Score: ", score);
   }
 }
 
-answerOptionsElement.addEventListener("click", checkAnswer);
+function proceedToNext() {
+  localStorage.setItem('countdownTime', countdownTime);
+  printProgress();
+  printQuestion();
+  printAnswers();
+  startTimer(countdownDisplay);
+}
 
-// Run this after loader
+answerOptionsDisplay.addEventListener("click", checkAnswer);
+
+// Run this after main loader
 startQuiz();
