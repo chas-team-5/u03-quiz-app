@@ -24,26 +24,23 @@
   </header>
 
   <article class="result">
-    <h2 id="result-score">x av n rätt!</h2>
+    <h3 id="result-score">x av n rätt!</h3>
     <img src="#" alt="img-result">
 
     <section>
-      <h4>Du blev</h4>
-      <h2 id="result-character">characterName</h2>
+      <h3>Du blev</h3>
+      <h2 class="gradient-horizontal" id="result-character">characterName</h2>
       <p id="result-text">
         insert text depending on characterName
       </p>
     </section>
 
-    <section>
-      <h5>Välj ett nytt quiz</h5>
+    <h4 class="gradient-horizontal">Välj ett nytt quiz</h4>
 
-      <div class="result__category-select">
-        <!-- Möjligen Button istället för Div -->
-        <div class="result__category-button"></div>
-        <div class="result__category-button"></div>
-      </div>
-    </section>
+    <div class="result__category-select">
+      <button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
+      <button class="cta" type="button" data-category="teknikens-varld">Teknikens värld</button>
+    </div>
   </article>
 </body>
 </html>
