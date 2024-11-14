@@ -10,6 +10,11 @@
 
 /* STEPPER */
 
+.stepper {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-dark);
+}
+
 #progress {
   display: flex;
   justify-content: center;
@@ -100,4 +105,4 @@
   100% {
       transform: rotate(360deg);
   }
-  } 
+}
