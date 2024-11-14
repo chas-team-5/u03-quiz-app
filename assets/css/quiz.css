@@ -11,7 +11,7 @@
 
 /* STEPPER */
 
-.stepper__list-of-indicators {
+#progress {
   display: flex;
   justify-content: center;
   gap: var(--spacing-xs);
@@ -19,15 +19,15 @@
   list-style: none;
 }
 
-.stepper__indicator {
+.progress-answer--unanswered {
   color: var(--color-white);
 }
 
-.stepper__indicator--correct {
+.progress-answer--correct {
   color: var(--color-correct);
 }
 
-.stepper__indicator--incorrect {
+.progress-answer--incorrect {
   color: var(--color-incorrect);
 }
 

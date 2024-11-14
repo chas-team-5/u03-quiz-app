@@ -8,15 +8,17 @@ const stepsTotal = document.getElementById("steps-total");
 const questionText = document.getElementById("question-text");
 const answerOptionsDisplay = document.getElementById("answer-options");
 const countdownDisplay = document.getElementById("countdown");
+const progressDisplay = document.getElementById("progress");
 
 const quizLength = 10;
 const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
-let { score, currentStep, questions } = loadProgress();
+let { score, currentStep, questions, quizProgress } = loadProgress(quizLength);
 
 async function generateQuestions(category) {
   questions = shuffleArray( await fetchQuestions(category) );
-  saveQuiz(score, currentStep, questions)
+  saveQuiz(score, currentStep, questions, quizProgress);
+  printProgress();
   printQuestion();
   printAnswers();
 }
@@ -28,6 +30,7 @@ async function startQuiz() {
       await generateQuestions(category);
     }
 
+    printProgress();
     printQuestion();
     printAnswers();
     startTimer(countdownDisplay);
@@ -35,6 +38,27 @@ async function startQuiz() {
   } else {
     redirectToStartPage();
   }
+}
+
+function printProgress() {
+  progressDisplay.innerHTML = "";
+
+  quizProgress.forEach((step) => {
+    const li = document.createElement("li");
+    li.classList.add(`progress-answer--${step}`);
+
+    if (step === "correct") {
+      li.innerHTML = `<i class="fas fa-circle-check"></i>`
+
+    } else if (step === "incorrect") {
+      li.innerHTML = `<i class="fas fa-circle-xmark"></i>`
+
+    } else {
+      li.innerHTML = `<i class="fas fa-circle"></i>`
+    }
+
+    progressDisplay.appendChild(li);
+  });
 }
 
 function printQuestion() {
@@ -75,8 +99,10 @@ function checkAnswer(e) {
 
     // Update score
     if (userAnswer === correctAnswer) {
-      console.log("Correct!");
+      quizProgress[currentStep] = "correct";
       score++;
+    } else {
+      quizProgress[currentStep] = "incorrect";
     }
 
     // Update step
@@ -89,13 +115,14 @@ function checkAnswer(e) {
       window.location.href = "result.html";
     }
 
-    saveQuiz(score, currentStep, questions);
+    saveQuiz(score, currentStep, questions, quizProgress);
     console.log("Score: ", score);
   }
 }
 
 function proceedToNext() {
   localStorage.setItem('countdownTime', countdownTime);
+  printProgress();
   printQuestion();
   printAnswers();
   startTimer(countdownDisplay);
