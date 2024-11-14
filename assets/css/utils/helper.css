@@ -3,3 +3,9 @@
 .hidden {
   display: none;
 }
+
+.gradient-horizontal {
+  background: var(--gradient-linear-horizontal);
+  background-clip: text;
+  color: transparent;
+}
