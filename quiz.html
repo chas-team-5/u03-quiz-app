@@ -20,7 +20,10 @@
   </header>
 
   <article class="quiz">
-    <p class="stepper-readout" id="stepperReadout">Question x / n</p>
+    <section class="stepper">
+      <p class="small">
+        Fråga <output id="steps-current"></output> av <output id="steps-total"></output>
+      </p>
 
     <!-- List of icons -->
     <ul class="stepper__list-of-indicators">
@@ -62,9 +65,8 @@
 
     <img class="question-img" src="#" alt="question-image">
 
-    <h2 id="questionText">
-      Vilket av följande djur är känt för att kunna förändra sin färg för att smälta in i omgivningen?
-    </h2>
+      <h2 id="question-text"></h2>
+    </section>
 
     <!-- Update text and/or background based on timer -->
     <p class="answer__timer">
@@ -73,20 +75,16 @@
       på dig att svara
     </p>
 
-    <!-- Toggle hidden/visible -->
-    <p class="answer__continue hidden">
-      <span id="questionAnswer">isCorrect?</span>
-      Klicka för att gå vidare
-    </p>
+      <!-- Toggle hidden/visible -->
+      <p class="answer__continue hidden">
+        <span id="questionAnswer">isCorrect?</span>
+        Klicka för att gå vidare
+      </p>
 
-    <div class="answer__button-container">
-      <!-- answer__button--correct answer__button--incorrect answer__button--selected -->
-      <!-- Possible Button istead of Div -->
-      <div class="answer__button answer__button--correct answer__button--selected" id="answerA">Kameleont</div>
-      <div class="answer__button" id="answerB">Gepard</div>
-      <div class="answer__button" id="answerC">Elefant</div>
-      <div class="answer__button" id="answerD">Pingvin</div>
-    </div>
+      <div id="answer-options">
+        <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
+      </div>
+    </section>
   </article>
 </body>
 
