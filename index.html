@@ -5,6 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Quiz: Hitta ditt inre — Vilken karaktär är du? | Start</title>
 
+	<meta name="description" content="En kort beskrivning av sidan.">
+
+	<meta property="og:title" content="Din Sidtitel Här">
+	<meta property="og:description" content="En kort beskrivning av sidan.">
+	<meta property="og:image" content="https://www.dinsida.se/bild.jpg">
+	<meta property="og:url" content="https://www.dinsida.se/">
+
 	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./assets/css/style.css">
 	<script type="module" src="./assets/js/main.js" defer></script>
@@ -15,24 +22,20 @@
     	<img class="header-logo" src="./assets/svg/logo.svg" alt="logo">
 	</header>
 
-    <main class="content">
+    <article class="content">
 			<img class="index-img" src="#" alt="index-image">
 
-			<section class="text-section">
-				<h1>Hitta ditt inre - gör vårt quiz</h1>
-				<p>Upptäck ditt perfekta quiz och vem du är på riktigt!
-					Utmana dig själv med vårt engagerande quiz som testar dina kunskaper inom spännande ämnen.
-					Oavsett om du är en nybörjare eller expert, kommer du att hitta frågor som får dig att tänka och skratta.
-					Gör quizet nu och se hur många poäng du kan få!</p>
-			</section>
+			<h1>Hitta ditt inre - gör vårt quiz</h1>
+			<p class="content__paragraph">Upptäck ditt perfekta quiz och vem du är på riktigt!
+				Utmana dig själv med vårt engagerande quiz som testar dina kunskaper inom spännande ämnen.
+				Oavsett om du är en nybörjare eller expert, kommer du att hitta frågor som får dig att tänka och skratta.
+				Gör quizet nu och se hur många poäng du kan få!</p>
 
-			<section class="start-game-section">
-				<h2>Välj kategori för att starta</h2>
-				<div class="button-container" id="categorySelection">
-					<button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
-					<button class="cta" type="button" data-category="teknikens-varld">Teknik</button>
-				</div>
-			</section>
-    </main>
+			<h2 class="gradient-horizontal">Välj kategori för att starta</h2>
+			<div class="button-container" id="categorySelection">
+				<button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
+				<button class="cta" type="button" data-category="teknikens-varld">Teknik</button>
+			</div>
+    </article>
 </body>
 </html>

@@ -20,10 +20,9 @@
   </header>
 
   <article class="quiz">
-    <section class="stepper">
-      <p class="small">
-        Fråga <output id="steps-current"></output> av <output id="steps-total"></output>
-      </p>
+    <p class="small">
+      Fråga <output id="steps-current"></output> av <output id="steps-total"></output>
+    </p>
 
     <!-- List of icons -->
     <ul class="stepper__list-of-indicators">
@@ -65,27 +64,24 @@
 
     <img class="question-img" src="#" alt="question-image">
 
-      <h2 id="question-text"></h2>
-    </section>
+    <h2 id="question-text">Fråga</h2>
 
-    <section class="answer">
-      <!-- Update text and/or background based on timer -->
-      <p class="answer__timer">
-        Du har
-        <span id="countdown">timeRemaining</span>
-        på dig att svara
-      </p>
+    <!-- Update text and/or background based on timer -->
+    <p class="answer__timer">
+      Du har
+      <span class="gradient-horizontal" id="timeRemaining">timeRemaining</span>
+      på dig att svara
+    </p>
 
-      <!-- Toggle hidden/visible -->
-      <p class="answer__continue hidden">
-        <span id="questionAnswer">isCorrect?</span>
-        Klicka för att gå vidare
-      </p>
+    <!-- Toggle hidden/visible -->
+    <p class="answer__continue hidden">
+      <span id="questionAnswer">isCorrect?</span>
+      Klicka för att gå vidare
+    </p>
 
-      <div id="answer-options">
-        <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
-      </div>
-    </section>
+    <div id="answer-options">
+      <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
+    </div>
   </article>
   <div id="spinner" class="loader"></div>
 </body>
