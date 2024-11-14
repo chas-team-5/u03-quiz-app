@@ -21,6 +21,7 @@ body {
 
 header {
   margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
   text-align: center;
 }
 
