@@ -6,10 +6,14 @@
   align-items: center;
   text-align: center;
   gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
 }
 
 /* STEPPER */
+
+.stepper {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-dark);
+}
 
 #progress {
   display: flex;
@@ -101,4 +105,4 @@
   100% {
       transform: rotate(360deg);
   }
-  } 
+}
