@@ -1,7 +1,7 @@
 import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
 import { shuffleArray, redirectToStartPage } from "./utils/helpers.js";
-import { startTimer, countdownInitialTime } from "./services/timer.js";
+import { countdownInitialTime, startTimer, stopTimer } from "./services/timer.js";
 
 const stepsCurrent = document.getElementById("steps-current");
 const stepsTotal = document.getElementById("steps-total");
@@ -16,98 +16,101 @@ let category = localStorage.getItem("selectedCategory");
 let { score, currentStep, questions, quizProgress } = loadProgress(quizLength);
 
 async function generateQuestions(category) {
-  questions = shuffleArray( await fetchQuestions(category) );
-  saveQuiz(score, currentStep, questions, quizProgress);
-  printProgress();
-  printQuestion();
-  printAnswers();
+	questions = shuffleArray( await fetchQuestions(category) );
+	saveQuiz(score, currentStep, questions, quizProgress);
+	printProgress();
+	printQuestion();
+	printAnswers();
 }
 
 // Start Quiz if category is set
 async function startQuiz() {
-  if (category) {
-    if (!questions.length) {
-      await generateQuestions(category);
-    }
+	if (category) {
+		if (!questions.length) {
+			await generateQuestions(category);
+		}
 
-    printProgress();
-    printQuestion();
-    printAnswers();
-    startTimer(countdownDisplay);
+		printProgress();
+		printQuestion();
+		printAnswers();
+		startTimer(countdownDisplay);
 
-  } else {
-    redirectToStartPage();
-  }
+	} else {
+		redirectToStartPage();
+	}
 }
 
 function printProgress() {
-  progressDisplay.innerHTML = "";
+	progressDisplay.innerHTML = "";
 
-  quizProgress.forEach((step) => {
-    const li = document.createElement("li");
-    li.classList.add(`progress-answer--${step}`);
+	quizProgress.forEach((step) => {
+		const li = document.createElement("li");
+		li.classList.add(`progress-answer--${step}`);
 
-    if (step === "correct") {
-      li.innerHTML = `<i class="fas fa-circle-check"></i>`
+		if (step === "correct") {
+			li.innerHTML = `<i class="fas fa-circle-check"></i>`
 
-    } else if (step === "incorrect") {
-      li.innerHTML = `<i class="fas fa-circle-xmark"></i>`
+		} else if (step === "incorrect") {
+			li.innerHTML = `<i class="fas fa-circle-xmark"></i>`
 
-    } else {
-      li.innerHTML = `<i class="fas fa-circle"></i>`
-    }
+		} else {
+			li.innerHTML = `<i class="fas fa-circle"></i>`
+		}
 
-    progressDisplay.appendChild(li);
-  });
+		progressDisplay.appendChild(li);
+	});
 }
 
 function printQuestion() {
-  if (!questions[currentStep]) return;
+	if (!questions[currentStep]) return;
 
-  stepsCurrent.textContent = currentStep + 1;
-  questionText.textContent = questions[currentStep].question;
-  stepsTotal.textContent = quizLength;
+	stepsCurrent.textContent = currentStep + 1;
+	questionText.textContent = questions[currentStep].question;
+	stepsTotal.textContent = quizLength;
 }
 
 function printAnswers() {
-  if (!questions[currentStep]) return;
+	if (!questions[currentStep]) return;
 
-  let answerOptions = questions[currentStep].options.map((option, index) => ({
-    text: option,
-    optionIndex: index
-  }));
+	let answerOptions = questions[currentStep].options.map((option, index) => ({
+		text: option,
+		optionIndex: index
+	}));
 
-  answerOptionsDisplay.innerHTML = "";
-  answerOptions = shuffleArray(answerOptions);
+	answerOptionsDisplay.innerHTML = "";
+	answerOptions = shuffleArray(answerOptions);
 
-  answerOptions.forEach((item) => {
-    const option = document.createElement("button");
-    option.classList.add("answer-option");
-    option.textContent = item.text;
-    option.setAttribute("data-id", item.optionIndex);
-
-    answerOptionsDisplay.appendChild(option);
-  });
+	answerOptions.forEach((item) => {
+		answerOptionsDisplay.innerHTML += `
+			<label class="answer-option">
+				<input type="radio" name="options" value="${item.text.toLowerCase()}" id="option-${item.optionIndex}" data-id="${item.optionIndex}">
+				<span>${item.text}</span>
+			</label>
+		`;
+	});
 }
 
 function checkAnswer(e) {
-  e.preventDefault();
+	if (e.target.tagName === "INPUT" && e.target.type === "radio") {
+		let userAnswer = parseInt(e.target.dataset.id);
+		let correctAnswer = questions[currentStep].correctAnswer;
+		e.target.closest("label").classList.add("selected");
 
-  if (e.target.tagName === "BUTTON") {
-    let userAnswer = parseInt(e.target.dataset.id);
-    let correctAnswer = questions[currentStep].correctAnswer;
+		// Update score
+		if (userAnswer === correctAnswer) {
+			quizProgress[currentStep] = "correct";
+			countdownDisplay.textContent = "Rätt svar Klicka för att gå vidare";
+			score++;
+		} else {
+			quizProgress[currentStep] = "incorrect";
+			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
+		}
 
-    // Update score
-    if (userAnswer === correctAnswer) {
-      quizProgress[currentStep] = "correct";
-      score++;
-    } else {
-      quizProgress[currentStep] = "incorrect";
-    }
-
-    // Update step
+		// Move to next step
+		// Update step
     if (currentStep < quizLength - 1) {
       currentStep++;
+			stopTimer();
       proceedToNext();
     } else {
 
@@ -115,17 +118,17 @@ function checkAnswer(e) {
       window.location.href = "result.html";
     }
 
-    saveQuiz(score, currentStep, questions, quizProgress);
+		saveQuiz(score, currentStep, questions, quizProgress);
     console.log("Score: ", score);
-  }
+	}
 }
 
 function proceedToNext() {
-  localStorage.setItem('countdownTime', countdownTime);
-  printProgress();
-  printQuestion();
-  printAnswers();
-  startTimer(countdownDisplay);
+	localStorage.setItem("countdownTime", countdownTime);
+	printProgress();
+	printQuestion();
+	printAnswers();
+	startTimer(countdownDisplay);
 }
 
 answerOptionsDisplay.addEventListener("click", checkAnswer);

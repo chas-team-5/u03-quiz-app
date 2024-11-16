@@ -12,7 +12,7 @@ function resetSavedQuiz() {
   localStorage.removeItem("currentQuestion");
   localStorage.removeItem("questions");
   localStorage.removeItem("quizProgress");
-  localStorage.setItem('countdownTime', countdownInitialTime);
+  localStorage.setItem("countdownTime", countdownInitialTime);
 }
 
 function loadProgress(quizLength) {
