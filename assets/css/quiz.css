@@ -1,15 +1,19 @@
 /* QUIZ */
 
 .quiz {
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-	text-align: center;
-	gap: var(--spacing-md);
-	margin-top: var(--spacing-md);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-md);
 }
 
 /* STEPPER */
+
+.stepper {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-dark);
+}
 
 #progress {
 	display: flex;
@@ -110,11 +114,11 @@
 	z-index: 1000;
 	}
 
-	@keyframes rotation {
-	0% {
-			transform: rotate(0deg);
-	}
-	100% {
-			transform: rotate(360deg);
-	}
-	}
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
