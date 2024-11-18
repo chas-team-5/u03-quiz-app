@@ -1,6 +1,7 @@
 /* QUIZ */
 
 .quiz {
+  position: relative;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -16,55 +17,71 @@
 }
 
 #progress {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-xs);
+	display: flex;
+	justify-content: center;
+	gap: var(--spacing-xs);
 
-  list-style: none;
+	list-style: none;
 }
 
 .progress-answer--unanswered {
-  color: var(--color-white);
+	color: var(--color-white);
 }
 
 .progress-answer--correct {
-  color: var(--color-correct);
+	color: var(--color-correct);
 }
 
 .progress-answer--incorrect {
-  color: var(--color-incorrect);
+	color: var(--color-incorrect);
 }
 
 /* TIMER / ANSWER REVEAL */
 
 .stepper-readout,
 .answer__timer {
-  color: var(--color-gray-dark);
+	color: var(--color-gray-dark);
 }
 
 .answer__continue {
-  color: var(--color-correct);
+	color: var(--color-correct);
 }
 
 .answer__continue--incorrect {
-  color: var(--color-incorrect);
+	color: var(--color-incorrect);
 }
 
 /* BUTTONS */
 
 #answer-options {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-sm);
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--spacing-sm);
+}
+
+#answer-options.answered .answer-option {
+	pointer-events: none;
 }
 
 .answer-option {
-  padding: 1rem 2rem;
-  border: 3px solid var(--color-black-absolute);
-  border-radius: 1.5rem;
-  cursor: pointer;
-  background-color: var(--color-white);
+	padding: 1rem 2rem;
+	border: 3px solid var(--color-black-absolute);
+	border-radius: 1.5rem;
+	cursor: pointer;
+	background-color: var(--color-white);
+}
+
+.answer-option:hover,
+.answer-option:active,
+.answer-option.selected  {
+	background-color: var(--color-black-absolute);
+	border-color: var(--color-black-absolute);
+	color: var(--color-white);
+}
+
+.answer-option input {
+	display: none;
 }
 
 .answer__option--selected {
@@ -82,27 +99,42 @@
   border-color: var(--color-incorrect);
 }
 
+#loading__screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: var(--color-background);
+}
+
+.loading__text {
+  font-size: var(--font-size-heading-md);
+  color: var(--color-gray-dark);
+  margin-bottom: var(--spacing-md);
+}
+
 .loader {
   width: 60px;
   height: 60px;
+  margin: 0 auto;
   border: 7px solid rgba(19, 176, 245, 0.15);
   border-bottom-color: #9747FF;
   border-radius: 50%;
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 1000;
-  }
+}
 
-  @keyframes rotation {
+@keyframes rotation {
   0% {
       transform: rotate(0deg);
   }
   100% {
       transform: rotate(360deg);
   }
+}
+
+.information {
+    font-size: var(--font-size-heading-xx);
 }
