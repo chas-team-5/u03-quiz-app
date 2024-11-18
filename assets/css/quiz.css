@@ -89,7 +89,7 @@
   background-color: var(--color-background);
 }
 
-#loading__text {
+.loading__text {
   font-size: var(--font-size-heading-md);
   color: var(--color-gray-dark);
   margin-bottom: var(--spacing-md);
@@ -118,4 +118,8 @@
   100% {
       transform: rotate(360deg);
   }
+  }
+
+  p {
+    font-size: var(--font-size-heading-md);
   }

@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const loading__screen = document.getElementById('loading__screen');
 
     if (category === 'djur-och-natur') {
-        loadingTextElement.innerHTML = "Gör dig redo för 'Djur & Natur'!<br>DU har 20 sekunder per fråga, så var snabb med svaren!";
+        loadingTextElement.innerHTML = "Gör dig redo för 'Djur & Natur'";
 }   else if (category === 'teknikens-varld') {
-    loadingTextElement.innerHTML = "Gör dig redo för 'Teknik'!<br>Du har 20 sekunder per fråga, så var snabb med svaren!";
+    loadingTextElement.innerHTML = "Gör dig redo för 'Teknik'";
 }
 
 loading__screen.style.display = 'block';
