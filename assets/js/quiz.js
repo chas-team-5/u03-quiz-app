@@ -83,6 +83,7 @@ function printAnswers() {
   answerOptions.forEach((item) => {
     const option = document.createElement("button");
     option.classList.add("answer-option");
+    // TODO: Add class
     option.textContent = item.text;
     option.setAttribute("data-id", item.optionIndex);
 
@@ -101,6 +102,8 @@ function checkAnswer(e) {
     if (userAnswer === correctAnswer) {
       quizProgress[currentStep] = "correct";
       score++;
+      // TODO: Add CSS-class to button
+      e.target.classList.add("answer-option--correct");
     } else {
       quizProgress[currentStep] = "incorrect";
     }
@@ -108,7 +111,9 @@ function checkAnswer(e) {
     // Update step
     if (currentStep < quizLength - 1) {
       currentStep++;
-      proceedToNext();
+      // TODO: Add timeout before proceedToNext
+      // .addEventListener("click", () => { proceedToNext(); });
+      // proceedToNext();
     } else {
 
       // To result on quiz end
@@ -129,6 +134,7 @@ function proceedToNext() {
 }
 
 answerOptionsDisplay.addEventListener("click", checkAnswer);
+// TODO: checkAnswer efter timeout
 
 // Run this after main loader
 startQuiz();

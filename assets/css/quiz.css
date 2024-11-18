@@ -67,17 +67,17 @@
   background-color: var(--color-white);
 }
 
-.answer__button--selected {
+.answer__option--selected {
   background-color: var(--color-black-absolute);
   color: var(--color-white);
 }
 
-.answer__button--correct {
+.answer__option--correct {
   box-shadow: 0 0 0 5px var(--color-correct);
   border-color: var(--color-correct);
 }
 
-.answer__button--incorrect {
+.answer__option--incorrect {
   box-shadow: 0 0 0 5px var(--color-incorrect);
   border-color: var(--color-incorrect);
 }
