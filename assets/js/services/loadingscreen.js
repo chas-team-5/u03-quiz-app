@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
     const category = localStorage.getItem("selectedCategory");
     const loadingTextElement = document.getElementById('loading__text');
     const loading__screen = document.getElementById('loading__screen');
@@ -9,9 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loadingTextElement.innerHTML = "Gör dig redo för 'Teknik'";
 }
 
-loading__screen.style.display = 'block';
+function showSpinner() {
+    loadingScreen.classList.remove('hidden');
+}
 
-document.addEventListener('questionsLoaded', () => {
-    document.getElementById('loading__screen').style.display = 'none';
-});
-} );
+function hideSpinner() {
+    loadingScreen.classList.add('hidden');
+}

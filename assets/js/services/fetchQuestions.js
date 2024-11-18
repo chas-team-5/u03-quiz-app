@@ -1,3 +1,4 @@
+const loadingScreen = document.getElementById('loading_screen');
 async function fetchQuestions(category) {
   showSpinner();
   let data;
@@ -5,7 +6,7 @@ async function fetchQuestions(category) {
     const response = await new Promise((resolve) => { 
       setTimeout(async () => {
         resolve(await fetch(`assets/data/${category}.json`));
-      }, 30000);
+      }, 3000);
     })
 
     if (!response.ok) {

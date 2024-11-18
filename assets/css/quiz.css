@@ -120,6 +120,10 @@
   }
   }
 
-  p {
-    font-size: var(--font-size-heading-md);
+  .information {
+    font-size: var(--font-size-heading-xx);
+  }
+
+  .hidden {
+    display: none;
   }
