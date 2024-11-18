@@ -2,6 +2,7 @@
 @import url(./utils/variables.css);
 @import url(./index.css);
 @import url(./quiz.css);
+@import url(./result.css);
 @import url(./utils/helper.css);
 
 /* GLOBAL */
@@ -21,20 +22,28 @@ body {
 
 header {
   margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
   text-align: center;
 }
 
 h1 {
   font-size: var(--font-size-heading-lg);
+  line-height: 1;
 }
 
 h2 {
-  font-size: var(--font-size-heading-sm);
+  font-size: var(--font-size-heading-md);
+  line-height: 1;
   font-weight: 600;
 }
 
+h3 {
+  font-size: var(--font-size-heading-sm);
+  line-height: 1.33;
+  /* font-weight: 600; */
+}
+
 h4 {
-  font-size: var(--font-size-sm);
-  font-weight: 400;
-  color: var(--color-gray-dark);
+  font-size: var(--font-size-heading-xs);
+  line-height: 1.2;
 }

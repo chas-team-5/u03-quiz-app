@@ -26,9 +26,14 @@ function startTimer(countdownDisplay) {
   timeOut = setTimeout(() => handleTimeout(countdownDisplay), countdownInitialTime * 1000);
 }
 
-function handleTimeout(countdownDisplay) {
-  countdownDisplay.textContent = "Inget svar! Klicka för att gå vidare";
+function stopTimer() {
   clearInterval(countdownInterval);
+  clearTimeout(timeOut);
 }
 
-export { timeOut, countdownInterval, countdownInitialTime, startTimer };
+function handleTimeout(countdownDisplay) {
+  countdownDisplay.textContent = "Inget svar! Klicka för att gå vidare";
+  stopTimer();
+}
+
+export { timeOut, countdownInterval, countdownInitialTime, startTimer, stopTimer };

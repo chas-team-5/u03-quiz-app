@@ -2,37 +2,51 @@
 <html lang="sv">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz: Hitta ditt inre — Vilken karaktär är du? | Resultat</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quiz: Hitta ditt inre — Vilken karaktär är du? | Resultat</title>
+
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+	<link rel="manifest" href="/favicon/site.webmanifest" />
+
+	<meta name="description" content="En kort beskrivning av sidan.">
+
+	<meta property="og:title" content="Din Sidtitel Här">
+	<meta property="og:description" content="En kort beskrivning av sidan.">
+	<meta property="og:image" content="https://www.dinsida.se/bild.jpg">
+	<meta property="og:url" content="https://www.dinsida.se/">
+
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./assets/css/style.css">
+	<script type="module" src="./assets/js/main.js" defer></script>
 </head>
 
 <body>
   <header>
-    <img src="#" alt="logo">
+    <img class="header-logo" src="./assets/svg/logo.svg" alt="logo">
   </header>
 
   <article class="result">
-    <h2 id="resultScore">x av n rätt!</h2>
+    <h3 id="result-score">x av n rätt!</h3>
     <img src="#" alt="img-result">
 
     <section>
-      <h4>Du blev</h4>
-      <h2 id="resultCharacter">characterName</h2>
-      <p id="resultText">
+      <h3>Du blev</h3>
+      <h2 class="gradient-horizontal" id="result-character">characterName</h2>
+      <p id="result-text">
         insert text depending on characterName
       </p>
     </section>
 
-    <section>
-      <h5>Välj ett nytt quiz</h5>
+    <h4 class="gradient-horizontal">Välj ett nytt quiz</h4>
 
-      <div class="result__category-select">
-        <!-- Möjligen Button istället för Div -->
-        <div class="result__category-button"></div>
-        <div class="result__category-button"></div>
-      </div>
-    </section>
+    <div class="result__category-select">
+      <button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
+      <button class="cta" type="button" data-category="teknikens-varld">Teknikens värld</button>
+    </div>
   </article>
 </body>
 </html>

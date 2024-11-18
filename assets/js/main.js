@@ -1,7 +1,7 @@
 import { resetSavedQuiz } from "./services/localStorage.js";
 import { setCategory } from "./services/categoryHandler.js";
 
-const startGame = document.getElementById("categorySelection");
+const startGame = document.getElementById("category-selection");
 
 // Added if statement to ensure questions aren't loaded without a selected catagory
 function selectCategory(e) {

@@ -1,0 +1,10 @@
+.result {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-md);
+  text-align: center;
+}
+
+#result-text {
+  margin: var(--spacing-sm) 0;
+}

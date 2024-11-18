@@ -7,76 +7,96 @@
   align-items: center;
   text-align: center;
   gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
 }
 
 /* STEPPER */
 
-#progress {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-xs);
+.stepper {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-dark);
+}
 
-  list-style: none;
+#progress {
+	display: flex;
+	justify-content: center;
+	gap: var(--spacing-xs);
+
+	list-style: none;
 }
 
 .progress-answer--unanswered {
-  color: var(--color-white);
+	color: var(--color-white);
 }
 
 .progress-answer--correct {
-  color: var(--color-correct);
+	color: var(--color-correct);
 }
 
 .progress-answer--incorrect {
-  color: var(--color-incorrect);
+	color: var(--color-incorrect);
 }
 
 /* TIMER / ANSWER REVEAL */
 
 .stepper-readout,
 .answer__timer {
-  color: var(--color-gray-dark);
+	color: var(--color-gray-dark);
 }
 
 .answer__continue {
-  color: var(--color-correct);
+	color: var(--color-correct);
 }
 
 .answer__continue--incorrect {
-  color: var(--color-incorrect);
+	color: var(--color-incorrect);
 }
 
 /* BUTTONS */
 
 #answer-options {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-sm);
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--spacing-sm);
+}
+
+#answer-options.answered .answer-option {
+	pointer-events: none;
 }
 
 .answer-option {
-  padding: 1rem 2rem;
-  border: 3px solid var(--color-black-absolute);
-  border-radius: 1.5rem;
-  cursor: pointer;
-  background-color: var(--color-white);
+	padding: 1rem 2rem;
+	border: 3px solid var(--color-black-absolute);
+	border-radius: 1.5rem;
+	cursor: pointer;
+	background-color: var(--color-white);
+}
+
+.answer-option:hover,
+.answer-option:active,
+.answer-option.selected  {
+	background-color: var(--color-black-absolute);
+	border-color: var(--color-black-absolute);
+	color: var(--color-white);
+}
+
+.answer-option input {
+	display: none;
 }
 
 .answer__button--selected {
-  background-color: var(--color-black-absolute);
-  color: var(--color-white);
+	background-color: var(--color-black-absolute);
+	color: var(--color-white);
 }
 
 .answer__button--correct {
-  box-shadow: 0 0 0 5px var(--color-correct);
-  border-color: var(--color-correct);
+	box-shadow: 0 0 0 5px var(--color-correct);
+	border-color: var(--color-correct);
 }
 
 .answer__button--incorrect {
-  box-shadow: 0 0 0 5px var(--color-incorrect);
-  border-color: var(--color-incorrect);
+	box-shadow: 0 0 0 5px var(--color-incorrect);
+	border-color: var(--color-incorrect);
 }
 
 #loading__screen {
