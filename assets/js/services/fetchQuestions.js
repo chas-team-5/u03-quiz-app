@@ -5,7 +5,7 @@ async function fetchQuestions(category) {
     const response = await new Promise((resolve) => { 
       setTimeout(async () => {
         resolve(await fetch(`assets/data/${category}.json`));
-      }, 1500);
+      }, 30000);
     })
 
     if (!response.ok) {
@@ -23,11 +23,13 @@ async function fetchQuestions(category) {
 }
 
 function showSpinner() {
-  document.getElementById('spinner').style.display = 'block';
+  document.getElementById('loading__screen').style.display = 'block';
 }
 
 function hideSpinner() {
-  document.getElementById('spinner').style.display = 'none';
+  document.getElementById('loading__screen').style.display = 'none';
 }
+
+document.dispatchEvent(new Event('questionsLoaded'));
 
 export {fetchQuestions}
