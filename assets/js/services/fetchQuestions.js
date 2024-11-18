@@ -1,4 +1,5 @@
-const loadingScreen = document.getElementById('loading_screen');
+import { showSpinner, hideSpinner } from "./loadingscreen.js";
+
 async function fetchQuestions(category) {
   showSpinner();
   let data;
@@ -22,15 +23,5 @@ async function fetchQuestions(category) {
   }
   return data;
 }
-
-function showSpinner() {
-  document.getElementById('loading__screen').style.display = 'block';
-}
-
-function hideSpinner() {
-  document.getElementById('loading__screen').style.display = 'none';
-}
-
-document.dispatchEvent(new Event('questionsLoaded'));
 
 export {fetchQuestions}
