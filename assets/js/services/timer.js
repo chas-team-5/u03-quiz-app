@@ -1,5 +1,6 @@
+const outOfTimeEvent = new CustomEvent("outOfTime");
 
-const countdownInitialTime = 20;
+const countdownInitialTime = 5; // Set to 5 for dev, was 20
 let timeOut;
 let countdownInterval;
 
@@ -23,7 +24,7 @@ function startTimer(countdownDisplay) {
   }
 
   countdownInterval = setInterval(printCountdown, 1000);
-  timeOut = setTimeout(() => handleTimeout(countdownDisplay), countdownInitialTime * 1000);
+  timeOut = setTimeout(() => handleTimeout(countdownDisplay), countdownInitialTime * 1000); // Do we need timeOut?
 }
 
 function stopTimer() {
@@ -31,9 +32,9 @@ function stopTimer() {
   clearTimeout(timeOut);
 }
 
-function handleTimeout(countdownDisplay) {
-  countdownDisplay.textContent = "Inget svar! Klicka för att gå vidare";
+function handleTimeout() {
   stopTimer();
+  dispatchEvent(outOfTimeEvent);
 }
 
-export { timeOut, countdownInterval, countdownInitialTime, startTimer, stopTimer };
+export { countdownInterval, countdownInitialTime, startTimer, stopTimer };

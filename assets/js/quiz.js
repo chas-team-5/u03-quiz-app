@@ -1,4 +1,4 @@
-import { stepsCurrentEl, stepsTotalEl, questionTextEl, answerOptionsEl, countdownEl, progressEl } from "./utils/elements.js";
+import { stepsCurrentEl, stepsTotalEl, questionTextEl, answerOptionsEl, countdownEl, progressEl, readyNext } from "./utils/elements.js";
 import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
 import { shuffleArray, goToStart, goToResult } from "./utils/helpers.js";
@@ -8,6 +8,9 @@ const totalQuestions = 10;
 const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
 let { score, currentStep, questions, quizProgress } = loadProgress(totalQuestions);
+
+let selectedOption;
+let correctOption;
 
 async function generateQuestions(category) {
 	questions = shuffleArray([...await fetchQuestions(category)]);
@@ -82,52 +85,97 @@ function printAnswers() {
 			</label>
 		`;
 	});
+
+	updateCorrectOption();
 }
 
-function checkAnswer(e) {
-	if (e.target.tagName === "INPUT" && e.target.type === "radio") {
-		let userAnswer = parseInt(e.target.dataset.id);
-		let correctAnswer = questions[currentStep].correctAnswer;
-		e.target.closest("label").classList.add("selected");
+// ---
 
-		// Update score
-		if (userAnswer === correctAnswer) {
-			quizProgress[currentStep] = "correct";
-			countdownEl.textContent = "Rätt svar Klicka för att gå vidare";
-			score++;
-		} else {
-			quizProgress[currentStep] = "incorrect";
-			countdownEl.textContent = "Fel svar! Klicka för att gå vidare";
-		}
-
-		// Move to next step
-		// Update step
-    if (currentStep < totalQuestions - 1) {
-      currentStep++;
-			stopTimer();
-      goToNext();
-    } else {
-
-      // To result on quiz end
-      goToResult();
-    }
-
-		saveQuiz(score, currentStep, questions, totalQuestions, quizProgress);
-    console.log("Score: ", score);
-	}
-}
-
+// Hide overlay and progress setup for next question/result
 function goToNext() {
+	readyNext.style.display = "none";
+	// Move to next step
+	if (currentStep < totalQuestions - 1) {
+		// Update step
+		currentStep++;
+		showNextQuestion();
+	} else {
+		goToResult();
+	}
+
+	saveQuiz(score, currentStep, questions, totalQuestions, quizProgress); // Maybe move to handleAnswer
+}
+
+// ---
+
+// Reset answer indicators and load next question
+function showNextQuestion() {
 	localStorage.setItem("countdownTime", countdownTime);
-	printProgress();
+	countdownEl.classList.remove("countdown--correct", "countdown--incorrect");
 	printQuestion();
 	printAnswers();
 	startTimer(countdownEl);
 }
 
-answerOptionsEl.addEventListener("click", checkAnswer);
+// ---
+
+// Treat outOfTime as answer
+function handleOutOfTime() {
+	selectedOption = null;
+	checkAnswer();
+}
+
+function setSelectedOption(option) {
+	if (option.target.tagName === "INPUT") {
+		selectedOption = option.target;
+		checkAnswer();
+	}
+}
+
+function updateCorrectOption() {
+	correctOption = questions[currentStep].correctAnswer;
+}
+
+function checkAnswer() {
+	let correctOptionEl = document.getElementById(`option-${correctOption}`).closest("label");
+
+	correctOptionEl.closest("label").classList.add("answer-option--correct");
+	stopTimer();
+
+	if (selectedOption === null) {
+		// outOfTime
+		quizProgress[currentStep] = "incorrect";
+		countdownEl.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
+		countdownEl.classList.add("countdown--incorrect");
+	} else {
+		const correct = parseInt(selectedOption.dataset.id) === correctOption;
+		selectedOption.closest("label").classList.add("answer-option--selected")
+
+		if (correct) {
+			// correct
+			quizProgress[currentStep] = "correct";
+			countdownEl.textContent = "Rätt svar! Klicka för att gå vidare";
+			countdownEl.classList.add("countdown--correct");
+			// selectedOption.closest("label").classList.add("answer-option--correct");
+			score++;
+		} else {
+			// incorrect
+			quizProgress[currentStep] = "incorrect";
+			countdownEl.textContent = "Fel svar! Klicka för att gå vidare";
+			countdownEl.classList.add("countdown--incorrect");
+			selectedOption.closest("label").classList.add("answer-option--incorrect");
+		}
+	}
+
+	printProgress();
+	readyNext.style.display = "block";
+}
+
+answerOptionsEl.addEventListener("click", setSelectedOption);
+addEventListener("outOfTime", handleOutOfTime);
+
+// Eventlistener on overlay for click to continue
+readyNext.addEventListener("click", goToNext);
 
 // Run this after main loader
 startQuiz();
-
-export { stepsCurrentEl, stepsTotalEl }
