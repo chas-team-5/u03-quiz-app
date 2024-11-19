@@ -7,7 +7,7 @@ async function fetchQuestions(category) {
     const response = await new Promise((resolve) => {
       setTimeout(async () => {
         resolve(await fetch(`assets/data/${category}.json`));
-      }, 500); // Set to 1000 for dev, was 3000
+      }, 3000);
     })
 
     if (!response.ok) {

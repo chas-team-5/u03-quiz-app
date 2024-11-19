@@ -1,13 +1,13 @@
 import { showSpinner, hideSpinner } from "./loadingScreen.js";
 
 async function fetchResult(category) {
-  showSpinner('Hämtar resultat…!');
+  showSpinner("Hämtar resultat…");
 
   try {
     const response = await new Promise((resolve) => {
       setTimeout(async () => {
         resolve(await fetch(`assets/data/result-${category}.json`));
-      }, 3000);
+      }, 1500);
     })
 
     if (!response.ok) {
