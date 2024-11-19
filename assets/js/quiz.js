@@ -126,12 +126,13 @@ function handleAnswer(correct, selectedOption) {
 	} else {
 		quizProgress[currentStep] = "incorrect";
 		countdownDisplay.classList.add("countdown--incorrect");
+
 		// TODO: Reveal correct answer
-		questions[currentStep].options.forEach((option) => {
-			console.log("forEach ", option.optionIndex);
-			if (checkAnswer(option))
-				option.closest("label").classList.add("answer-option--correct");
-		})
+		// questions[currentStep].options.forEach((option) => {
+		// 	console.log("forEach ", option.optionIndex);
+		// 	if (checkAnswer(option))
+		// 		option.closest("label").classList.add("answer-option--correct");
+		// })
 
 		if (selectedOption === "outOfTime") {
 			countdownDisplay.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
@@ -141,52 +142,8 @@ function handleAnswer(correct, selectedOption) {
 		}
 	}
 	printProgress();
-	// TODO: Change to click instead of timer
-	// setTimeout(proceedToNext, 5000);
 	overlay.style.display = "block";
 }
-
-// function handleAnswer(correct, selectedOption) {
-// 	switch (correct) {
-// 		case true:
-// 			console.log("true");
-
-// 			quizProgress[currentStep] = "correct";
-// 			countdownDisplay.textContent = "Rätt svar! Klicka för att gå vidare";
-// 			countdownDisplay.classList.add("countdown--correct");
-// 			score++;
-// 			selectedOption.closest("label").classList.add("answer-option--correct");
-
-// 			break;
-
-// 		case false:
-// 			console.log("false");
-
-// 			quizProgress[currentStep] = "incorrect";
-// 			countdownDisplay.classList.add("countdown--incorrect");
-
-// 			selectedOption.closest("label").classList.add("answer-option--incorrect");
-// 			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
-
-// 			break;
-
-// 		case "outOfTime":
-// 			console.log("Out of time");
-
-// 			quizProgress[currentStep] = "incorrect";
-// 			countdownDisplay.classList.add("countdown--incorrect");
-
-// 			countdownDisplay.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
-
-// 			// TODO: Add answer-option--correct till rätt svar
-
-// 			break;
-// 	}
-// 	// proceedToNext();
-// 	stopTimer();
-// 	printProgress();
-// 	setTimeout(proceedToNext, 5000); // TODO: Change to click instead of timer
-// }
 
 // Hide overlay and progress setup for next question or result
 function proceedToNext() {
