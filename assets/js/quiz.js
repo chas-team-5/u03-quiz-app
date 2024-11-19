@@ -1,23 +1,17 @@
+import { stepsCurrentEl, stepsTotalEl, questionTextEl, answerOptionsEl, countdownEl, progressEl } from "./utils/elements.js";
 import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
-import { shuffleArray, redirectToStartPage } from "./utils/helpers.js";
+import { shuffleArray, goToStart, goToResult } from "./utils/helpers.js";
 import { countdownInitialTime, startTimer, stopTimer } from "./services/timer.js";
 
-const stepsCurrent = document.getElementById("steps-current");
-const stepsTotal = document.getElementById("steps-total");
-const questionText = document.getElementById("question-text");
-const answerOptionsDisplay = document.getElementById("answer-options");
-const countdownDisplay = document.getElementById("countdown");
-const progressDisplay = document.getElementById("progress");
-
-const quizLength = 10;
+const totalQuestions = 10;
 const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
-let { score, currentStep, questions, quizProgress } = loadProgress(quizLength);
+let { score, currentStep, questions, quizProgress } = loadProgress(totalQuestions);
 
 async function generateQuestions(category) {
 	questions = shuffleArray( await fetchQuestions(category) );
-	saveQuiz(score, currentStep, questions, quizProgress);
+	saveQuiz(score, currentStep, questions, totalQuestions, quizProgress);
 	printProgress();
 	printQuestion();
 	printAnswers();
@@ -33,15 +27,15 @@ async function startQuiz() {
 		printProgress();
 		printQuestion();
 		printAnswers();
-		startTimer(countdownDisplay);
+		startTimer(countdownEl);
 
 	} else {
-		redirectToStartPage();
+		goToStart();
 	}
 }
 
 function printProgress() {
-	progressDisplay.innerHTML = "";
+	progressEl.innerHTML = "";
 
 	quizProgress.forEach((step) => {
 		const li = document.createElement("li");
@@ -57,16 +51,16 @@ function printProgress() {
 			li.innerHTML = `<i class="fas fa-circle"></i>`
 		}
 
-		progressDisplay.appendChild(li);
+		progressEl.appendChild(li);
 	});
 }
 
 function printQuestion() {
 	if (!questions[currentStep]) return;
 
-	stepsCurrent.textContent = currentStep + 1;
-	questionText.textContent = questions[currentStep].question;
-	stepsTotal.textContent = quizLength;
+	stepsCurrentEl.textContent = currentStep + 1;
+	questionTextEl.textContent = questions[currentStep].question;
+	stepsTotalEl.textContent = totalQuestions;
 }
 
 function printAnswers() {
@@ -77,11 +71,11 @@ function printAnswers() {
 		optionIndex: index
 	}));
 
-	answerOptionsDisplay.innerHTML = "";
+	answerOptionsEl.innerHTML = "";
 	answerOptions = shuffleArray(answerOptions);
 
 	answerOptions.forEach((item) => {
-		answerOptionsDisplay.innerHTML += `
+		answerOptionsEl.innerHTML += `
 			<label class="answer-option">
 				<input type="radio" name="options" value="${item.text.toLowerCase()}" id="option-${item.optionIndex}" data-id="${item.optionIndex}">
 				<span>${item.text}</span>
@@ -99,39 +93,41 @@ function checkAnswer(e) {
 		// Update score
 		if (userAnswer === correctAnswer) {
 			quizProgress[currentStep] = "correct";
-			countdownDisplay.textContent = "Rätt svar Klicka för att gå vidare";
+			countdownEl.textContent = "Rätt svar Klicka för att gå vidare";
 			score++;
 		} else {
 			quizProgress[currentStep] = "incorrect";
-			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
+			countdownEl.textContent = "Fel svar! Klicka för att gå vidare";
 		}
 
 		// Move to next step
 		// Update step
-    if (currentStep < quizLength - 1) {
+    if (currentStep < totalQuestions - 1) {
       currentStep++;
 			stopTimer();
-      proceedToNext();
+      goToNext();
     } else {
 
       // To result on quiz end
-      window.location.href = "result.html";
+      goToResult();
     }
 
-		saveQuiz(score, currentStep, questions, quizProgress);
+		saveQuiz(score, currentStep, questions, totalQuestions, quizProgress);
     console.log("Score: ", score);
 	}
 }
 
-function proceedToNext() {
+function goToNext() {
 	localStorage.setItem("countdownTime", countdownTime);
 	printProgress();
 	printQuestion();
 	printAnswers();
-	startTimer(countdownDisplay);
+	startTimer(countdownEl);
 }
 
-answerOptionsDisplay.addEventListener("click", checkAnswer);
+answerOptionsEl.addEventListener("click", checkAnswer);
 
 // Run this after main loader
 startQuiz();
+
+export { stepsCurrentEl, stepsTotalEl }

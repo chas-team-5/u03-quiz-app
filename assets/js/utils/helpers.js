@@ -8,8 +8,16 @@ function shuffleArray(array) {
   return newArray;
 }
 
-function redirectToStartPage() {
+function goToStart() {
   window.location.href = "index.html";
 }
 
-export { shuffleArray, redirectToStartPage }
+function goToResult() {
+  window.location.href = "result.html";
+}
+
+function goToQuiz() {
+  window.location.href = "quiz.html";
+}
+
+export { shuffleArray, goToStart, goToQuiz, goToResult }

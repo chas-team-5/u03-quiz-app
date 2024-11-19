@@ -2,9 +2,9 @@ import { showSpinner, hideSpinner } from "./loadingscreen.js";
 
 async function fetchQuestions(category) {
   showSpinner();
-  let data;
+
   try {
-    const response = await new Promise((resolve) => { 
+    const response = await new Promise((resolve) => {
       setTimeout(async () => {
         resolve(await fetch(`assets/data/${category}.json`));
       }, 3000);
@@ -14,14 +14,14 @@ async function fetchQuestions(category) {
       throw new Error("Failed to load questions");
     }
 
-  data = await response.json();
+    const data = await response.json();
+    return data;
 
   } catch (error) {
       console.error("Error fetching questions:", error);
   } finally {
     hideSpinner();
   }
-  return data;
 }
 
-export {fetchQuestions}
+export { fetchQuestions }
