@@ -9,7 +9,7 @@ const questionText = document.getElementById("question-text");
 const answerOptionsDisplay = document.getElementById("answer-options");
 const countdownDisplay = document.getElementById("countdown");
 const progressDisplay = document.getElementById("progress");
-const overlay = document.getElementById("overlay");
+const readyCheck = document.getElementById("readyCheck");
 
 const quizLength = 10;
 const countdownTime = countdownInitialTime;
@@ -100,7 +100,7 @@ function printAnswers() {
 
 // Hide overlay and progress setup for next question/result
 function proceedToNext() {
-	overlay.style.display = "none";
+	readyCheck.style.display = "none";
 	// Move to next step
 	if (currentStep < quizLength - 1) {
 		// Update step
@@ -175,14 +175,14 @@ function checkAnswer() {
 	}
 
 	printProgress();
-	overlay.style.display = "block";
+	readyCheck.style.display = "block";
 }
 
 answerOptionsDisplay.addEventListener("click", setSelectedOption);
 addEventListener("outOfTime", handleOutOfTime);
 
 // Eventlistener on overlay for click to continue
-overlay.addEventListener("click", proceedToNext);
+readyCheck.addEventListener("click", proceedToNext);
 
 // Run this after main loader
 startQuiz();

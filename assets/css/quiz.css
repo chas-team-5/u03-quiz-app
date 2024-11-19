@@ -17,73 +17,72 @@
 }
 
 #progress {
-	display: flex;
-	justify-content: center;
-	gap: var(--spacing-xs);
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
 
-	list-style: none;
+  list-style: none;
 }
 
 .progress-answer--unanswered {
-	color: var(--color-white);
+  color: var(--color-white);
 }
 
 .progress-answer--correct {
-	color: var(--color-correct);
+  color: var(--color-correct);
 }
 
 .progress-answer--incorrect {
-	color: var(--color-incorrect);
+  color: var(--color-incorrect);
 }
 
 /* TIMER / ANSWER REVEAL */
 
 .stepper-readout,
 .countdown {
-	color: var(--color-gray-dark);
+  color: var(--color-gray-dark);
 }
 
 .countdown--correct {
-	color: var(--color-correct);
+  color: var(--color-correct);
 }
 
 .countdown--incorrect {
-	color: var(--color-incorrect);
+  color: var(--color-incorrect);
 }
 
 /* BUTTON CONTAINER */
 
 #answer-options {
-	display: grid;
-	grid-template-rows: 1fr 1fr;
-	grid-template-columns: 1fr 1fr;
-	gap: var(--spacing-sm);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
 }
 
 #answer-options.answered .answer-option {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 /* BUTTONS */
 
 .answer-option {
-	padding: 1rem 2rem;
-	border: 3px solid var(--color-black-absolute);
-	border-radius: 1.5rem;
-	cursor: pointer;
-	background-color: var(--color-white);
+  padding: 1rem 2rem;
+  border: 3px solid var(--color-black-absolute);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  background-color: var(--color-white);
 }
 
 .answer-option:hover,
 .answer-option:active,
-.answer-option.selected  {
-	background-color: var(--color-black-absolute);
-	/* border-color: var(--color-black-absolute); */
-	color: var(--color-white);
+.answer-option.selected {
+  background-color: var(--color-black-absolute);
+  color: var(--color-white);
 }
 
 .answer-option input {
-	display: none;
+  display: none;
 }
 
 .answer-option--selected {
@@ -108,7 +107,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   background-color: var(--color-background);
 }
 
@@ -123,7 +122,7 @@
   height: 60px;
   margin: 0 auto;
   border: 7px solid rgba(19, 176, 245, 0.15);
-  border-bottom-color: #9747FF;
+  border-bottom-color: #9747ff;
   border-radius: 50%;
   display: block;
   box-sizing: border-box;
@@ -132,20 +131,20 @@
 
 @keyframes rotation {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 .information {
-    font-size: var(--font-size-heading-xx);
+  font-size: var(--font-size-heading-xx);
 }
 
 /* OVERLAY */
 
-#overlay {
+#readyCheck {
   display: none;
   position: fixed;
   top: 0;
