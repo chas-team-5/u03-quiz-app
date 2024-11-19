@@ -1,19 +1,23 @@
 const category = localStorage.getItem("selectedCategory");
-const loadingTextElement = document.getElementById("loading__text");
-const loadingScreen = document.getElementById("loading__screen");
+const loadingScreenEl = document.getElementById("loading-screen");
+const loadingTextEl = document.getElementById("loading-text");
+let categoryText;
 
 if (category === "djur-och-natur") {
-    loadingTextElement.innerHTML = "Gör dig redo för 'Djur & Natur'";
+    categoryText = "Gör dig redo för 'Djur & Natur'";
 }   else if (category === "teknik") {
-    loadingTextElement.innerHTML = "Gör dig redo för 'Teknik'";
+    categoryText = "Gör dig redo för 'Teknik'";
 }
 
-function showSpinner() {
-    loadingScreen.classList.remove("hidden");
+function showSpinner(loadingText) {
+    let text = loadingText ?? categoryText;
+
+    loadingScreenEl.classList.remove("hidden");
+    loadingTextEl.innerHTML = text;
 }
 
 function hideSpinner() {
-    loadingScreen.classList.add("hidden");
+    loadingScreenEl.classList.add("hidden");
 }
 
 export { showSpinner, hideSpinner }

@@ -29,7 +29,7 @@
     <img class="header-logo" src="./assets/images/logo.svg" alt="Quiz, Hitta ditt inre">
   </header>
 
-  <article class="result">
+  <article class="article-container result">
     <h3 id="result-score"><output id="answers-correct"></output> av <output id="steps-total"></output> rätt!</h3>
 
     <section class="result-content">
@@ -43,6 +43,11 @@
     <div class="button-container" id="category-selection">
       <button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
       <button class="cta" type="button" data-category="teknik">Teknik</button>
+    </div>
+
+    <div id="loading-screen" class="hidden">
+      <h3 id="loading-text" class="loading-text gradient-horizontal"></h3>
+      <div id="spinner" class="loader"></div>
     </div>
   </article>
 </body>

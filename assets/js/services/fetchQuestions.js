@@ -1,4 +1,4 @@
-import { showSpinner, hideSpinner } from "./loadingscreen.js";
+import { showSpinner, hideSpinner } from "./loadingScreen.js";
 
 async function fetchQuestions(category) {
   showSpinner();
