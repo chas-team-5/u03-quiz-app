@@ -1,11 +1,10 @@
 function shuffleArray(array) {
-  const newArray = array.slice();
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  const randomizedArray = [];
+  while (array.length) {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    randomizedArray.push(array.splice(randomIndex, 1)[0]);
   }
-
-  return newArray;
+  return randomizedArray;
 }
 
 function goToStart() {

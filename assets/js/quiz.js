@@ -10,7 +10,7 @@ let category = localStorage.getItem("selectedCategory");
 let { score, currentStep, questions, quizProgress } = loadProgress(totalQuestions);
 
 async function generateQuestions(category) {
-	questions = shuffleArray( await fetchQuestions(category) );
+	questions = shuffleArray([...await fetchQuestions(category)]);
 	saveQuiz(score, currentStep, questions, totalQuestions, quizProgress);
 	printProgress();
 	printQuestion();
