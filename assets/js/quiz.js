@@ -16,6 +16,9 @@ const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
 let { score, currentStep, questions, quizProgress } = loadProgress(quizLength);
 
+let selectedOption;
+let correctOption;
+
 async function generateQuestions(category) {
 	questions = shuffleArray( await fetchQuestions(category) );
 	saveQuiz(score, currentStep, questions, quizProgress);
@@ -89,6 +92,8 @@ function printAnswers() {
 			</label>
 		`;
 	});
+
+	updateCorrectOption();
 }
 
 // ---
@@ -111,10 +116,18 @@ function getUserAnswer(e) {
 
 function checkAnswer(answer) {
 	const correctAnswer = questions[currentStep].correctAnswer;
+	const temp = document.getElementById(`option-${correctAnswer}`);
+	console.log(temp);
+	console.log(typeof correctAnswer);
+	console.log(typeof temp.dataset.id);
+	temp.closest("label").classList.add("answer-option--correct");
 	return answer === correctAnswer;
 }
 
 function handleAnswer(correct, selectedOption) {
+	// const correctIndex = questions[currentStep].correctAnswer;
+	const correctAnswerEl = document.getElementById(`option-${questions[currentStep].correctAnswer}`);
+
 	stopTimer();
 
 	if (correct) {
@@ -129,7 +142,7 @@ function handleAnswer(correct, selectedOption) {
 
 		// TODO: Reveal correct answer
 		// questions[currentStep].options.forEach((option) => {
-		// 	console.log("forEach ", option.optionIndex);
+		// 	console.log("forEach ", option.dataset.id);
 		// 	if (checkAnswer(option))
 		// 		option.closest("label").classList.add("answer-option--correct");
 		// })
@@ -177,12 +190,60 @@ function nextQuestion() {
 
 // Treat outOfTime as answer
 function handleOutOfTime() {
-	handleAnswer(false, "outOfTime");
+	// handleAnswer(false, "outOfTime");
+	selectedOption = null;
+	checkAnswerNew();
 }
 
-answerOptionsDisplay.addEventListener("click", getUserAnswer);
-// TODO: checkAnswer efter timeout
+function setSelectedOption(option) {
+	if (option.target.tagName === "INPUT") {
+		// selectedOption = parseInt(option.target.dataset.id);
+		selectedOption = option.target;
+		checkAnswerNew();
+	}
+}
+
+function updateCorrectOption() {
+	correctOption = questions[currentStep].correctAnswer;
+}
+
+function checkAnswerNew() {
+	
+	stopTimer();
+	
+	if (selectedOption === null) {
+		// outOfTime
+		quizProgress[currentStep] = "incorrect";
+		countdownDisplay.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
+		countdownDisplay.classList.add("countdown--incorrect");
+	} else {
+		const correct = parseInt(selectedOption.dataset.id) === correctOption;
+
+		selectedOption.closest("label").classList.add("answer-option--selected")
+
+		if (correct) {
+			// correct
+			quizProgress[currentStep] = "correct";
+			countdownDisplay.textContent = "Rätt svar! Klicka för att gå vidare";
+			countdownDisplay.classList.add("countdown--correct");
+			selectedOption.closest("label").classList.add("answer-option--correct");
+			score++;
+		} else {
+			// incorrect
+			quizProgress[currentStep] = "incorrect";
+			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
+			countdownDisplay.classList.add("countdown--incorrect");
+			selectedOption.closest("label").classList.add("answer-option--incorrect");
+		}
+	}
+
+	printProgress();
+	overlay.style.display = "block";
+}
+
+answerOptionsDisplay.addEventListener("click", setSelectedOption);
 addEventListener("outOfTime", handleOutOfTime);
+
 // Eventlistener on overlay for click to continue
 overlay.addEventListener("click", proceedToNext);
 
