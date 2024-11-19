@@ -9,6 +9,7 @@ const questionText = document.getElementById("question-text");
 const answerOptionsDisplay = document.getElementById("answer-options");
 const countdownDisplay = document.getElementById("countdown");
 const progressDisplay = document.getElementById("progress");
+const overlay = document.getElementById("overlay");
 
 const quizLength = 10;
 const countdownTime = countdownInitialTime;
@@ -90,49 +91,143 @@ function printAnswers() {
 	});
 }
 
-function checkAnswer(e) {
-	if (e.target.tagName === "INPUT" && e.target.type === "radio") {
+// ---
+
+// Read answer from radioButton options
+function getUserAnswer(e) {
+	const selectedOption = e.target;
+
+	if (selectedOption.tagName === "INPUT" && selectedOption.type === "radio") {
 		let userAnswer = parseInt(e.target.dataset.id);
-		let correctAnswer = questions[currentStep].correctAnswer;
-		e.target.closest("label").classList.add("selected");
+		// let correctAnswer = questions[currentStep].correctAnswer;
+		// const isCorrect = userAnswer === correctAnswer;
 
-		// Update score
-		if (userAnswer === correctAnswer) {
-			quizProgress[currentStep] = "correct";
-			countdownDisplay.textContent = "Rätt svar Klicka för att gå vidare";
-			score++;
-		} else {
-			quizProgress[currentStep] = "incorrect";
-			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
-		}
+		selectedOption.closest("label").classList.add("answer-option--selected"); // TODO: Move to handleAnswer
 
-		// Move to next step
-		// Update step
-    if (currentStep < quizLength - 1) {
-      currentStep++;
-			stopTimer();
-      proceedToNext();
-    } else {
-
-      // To result on quiz end
-      window.location.href = "result.html";
-    }
-
-		saveQuiz(score, currentStep, questions, quizProgress);
-    console.log("Score: ", score);
+		handleAnswer(checkAnswer(userAnswer), selectedOption); // Possibly call checkAnswer from within handleAnswer
+		// alt handleAnswer(userAnswer === correctAnswer);
 	}
 }
 
-function proceedToNext() {
-	localStorage.setItem("countdownTime", countdownTime);
+function checkAnswer(answer) {
+	const correctAnswer = questions[currentStep].correctAnswer;
+	return answer === correctAnswer;
+}
+
+function handleAnswer(correct, selectedOption) {
+	stopTimer();
+
+	if (correct) {
+		quizProgress[currentStep] = "correct";
+		countdownDisplay.textContent = "Rätt svar! Klicka för att gå vidare";
+		countdownDisplay.classList.add("countdown--correct");
+		score++;
+		selectedOption.closest("label").classList.add("answer-option--correct");
+	} else {
+		quizProgress[currentStep] = "incorrect";
+		countdownDisplay.classList.add("countdown--incorrect");
+		// TODO: Reveal correct answer
+		questions[currentStep].options.forEach((option) => {
+			console.log("forEach ", option.optionIndex);
+			if (checkAnswer(option))
+				option.closest("label").classList.add("answer-option--correct");
+		})
+
+		if (selectedOption === "outOfTime") {
+			countdownDisplay.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
+		} else {
+			selectedOption.closest("label").classList.add("answer-option--incorrect");
+			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
+		}
+	}
 	printProgress();
+	// TODO: Change to click instead of timer
+	// setTimeout(proceedToNext, 5000);
+	overlay.style.display = "block";
+}
+
+// function handleAnswer(correct, selectedOption) {
+// 	switch (correct) {
+// 		case true:
+// 			console.log("true");
+
+// 			quizProgress[currentStep] = "correct";
+// 			countdownDisplay.textContent = "Rätt svar! Klicka för att gå vidare";
+// 			countdownDisplay.classList.add("countdown--correct");
+// 			score++;
+// 			selectedOption.closest("label").classList.add("answer-option--correct");
+
+// 			break;
+
+// 		case false:
+// 			console.log("false");
+
+// 			quizProgress[currentStep] = "incorrect";
+// 			countdownDisplay.classList.add("countdown--incorrect");
+
+// 			selectedOption.closest("label").classList.add("answer-option--incorrect");
+// 			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
+
+// 			break;
+
+// 		case "outOfTime":
+// 			console.log("Out of time");
+
+// 			quizProgress[currentStep] = "incorrect";
+// 			countdownDisplay.classList.add("countdown--incorrect");
+
+// 			countdownDisplay.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
+
+// 			// TODO: Add answer-option--correct till rätt svar
+
+// 			break;
+// 	}
+// 	// proceedToNext();
+// 	stopTimer();
+// 	printProgress();
+// 	setTimeout(proceedToNext, 5000); // TODO: Change to click instead of timer
+// }
+
+// Hide overlay and progress setup for next question or result
+function proceedToNext() {
+	overlay.style.display = "none";
+	// Move to next step
+	// Update step
+	if (currentStep < quizLength - 1) {
+		currentStep++;
+		nextQuestion();
+	} else {
+		// To result on quiz end
+		window.location.href = "result.html";
+	}
+
+	saveQuiz(score, currentStep, questions, quizProgress); // Maybe move to handleAnswer
+}
+
+// ---
+
+// Reset answer indicators and load next question
+function nextQuestion() {
+	localStorage.setItem("countdownTime", countdownTime);
+	countdownDisplay.classList.remove("countdown--correct", "countdown--incorrect");
+	// printProgress();
 	printQuestion();
 	printAnswers();
 	startTimer(countdownDisplay);
 }
 
-answerOptionsDisplay.addEventListener("click", checkAnswer);
+// ---
+
+// Treat outOfTime as answer
+function handleOutOfTime() {
+	handleAnswer(false, "outOfTime");
+}
+
+answerOptionsDisplay.addEventListener("click", getUserAnswer);
 // TODO: checkAnswer efter timeout
+addEventListener("outOfTime", handleOutOfTime);
+// Eventlistener on overlay for click to continue
+overlay.addEventListener("click", proceedToNext);
 
 // Run this after main loader
 startQuiz();
