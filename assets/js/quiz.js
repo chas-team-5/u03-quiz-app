@@ -9,11 +9,15 @@ const questionText = document.getElementById("question-text");
 const answerOptionsDisplay = document.getElementById("answer-options");
 const countdownDisplay = document.getElementById("countdown");
 const progressDisplay = document.getElementById("progress");
+const readyCheck = document.getElementById("readyCheck");
 
 const quizLength = 10;
 const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
 let { score, currentStep, questions, quizProgress } = loadProgress(quizLength);
+
+let selectedOption;
+let correctOption;
 
 async function generateQuestions(category) {
 	questions = shuffleArray([...await fetchQuestions(category)]);
@@ -88,50 +92,97 @@ function printAnswers() {
 			</label>
 		`;
 	});
+
+	updateCorrectOption();
 }
 
-function checkAnswer(e) {
-	if (e.target.tagName === "INPUT" && e.target.type === "radio") {
-		let userAnswer = parseInt(e.target.dataset.id);
-		let correctAnswer = questions[currentStep].correctAnswer;
-		e.target.closest("label").classList.add("selected");
+// ---
 
-		// Update score
-		if (userAnswer === correctAnswer) {
-			quizProgress[currentStep] = "correct";
-			countdownDisplay.textContent = "Rätt svar Klicka för att gå vidare";
-			score++;
-		} else {
-			quizProgress[currentStep] = "incorrect";
-			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
-		}
-
-		// Move to next step
-		// Update step
-    if (currentStep < quizLength - 1) {
-      currentStep++;
-			stopTimer();
-      proceedToNext();
-    } else {
-
-      // To result on quiz end
-      window.location.href = "result.html";
-    }
-
-		saveQuiz(score, currentStep, questions, quizProgress);
-    console.log("Score: ", score);
-	}
-}
-
+// Hide overlay and progress setup for next question/result
 function proceedToNext() {
+	readyCheck.style.display = "none";
+	// Move to next step
+	if (currentStep < quizLength - 1) {
+		// Update step
+		currentStep++;
+		nextQuestion();
+	} else {
+		// To result on quiz end
+		window.location.href = "result.html";
+	}
+
+	saveQuiz(score, currentStep, questions, quizProgress); // Maybe move to handleAnswer
+}
+
+// ---
+
+// Reset answer indicators and load next question
+function nextQuestion() {
 	localStorage.setItem("countdownTime", countdownTime);
-	printProgress();
+	countdownDisplay.classList.remove("countdown--correct", "countdown--incorrect");
 	printQuestion();
 	printAnswers();
 	startTimer(countdownDisplay);
 }
 
-answerOptionsDisplay.addEventListener("click", checkAnswer);
+// ---
+
+// Treat outOfTime as answer
+function handleOutOfTime() {
+	selectedOption = null;
+	checkAnswer();
+}
+
+function setSelectedOption(option) {
+	if (option.target.tagName === "INPUT") {
+		selectedOption = option.target;
+		checkAnswer();
+	}
+}
+
+function updateCorrectOption() {
+	correctOption = questions[currentStep].correctAnswer;
+}
+
+function checkAnswer() {
+
+	stopTimer();
+
+	if (selectedOption === null) {
+		// outOfTime
+		quizProgress[currentStep] = "incorrect";
+		countdownDisplay.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
+		countdownDisplay.classList.add("countdown--incorrect");
+	} else {
+		const correct = parseInt(selectedOption.dataset.id) === correctOption;
+
+		selectedOption.closest("label").classList.add("answer-option--selected")
+
+		if (correct) {
+			// correct
+			quizProgress[currentStep] = "correct";
+			countdownDisplay.textContent = "Rätt svar! Klicka för att gå vidare";
+			countdownDisplay.classList.add("countdown--correct");
+			selectedOption.closest("label").classList.add("answer-option--correct");
+			score++;
+		} else {
+			// incorrect
+			quizProgress[currentStep] = "incorrect";
+			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
+			countdownDisplay.classList.add("countdown--incorrect");
+			selectedOption.closest("label").classList.add("answer-option--incorrect");
+		}
+	}
+
+	printProgress();
+	readyCheck.style.display = "block";
+}
+
+answerOptionsDisplay.addEventListener("click", setSelectedOption);
+addEventListener("outOfTime", handleOutOfTime);
+
+// Eventlistener on overlay for click to continue
+readyCheck.addEventListener("click", proceedToNext);
 
 // Run this after main loader
 startQuiz();
