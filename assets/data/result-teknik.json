@@ -1,32 +1,32 @@
 [
-	{
-		"id": 1,
-		"name": "Ada Lovelace",
-		"text": "Visionär, tänkare och banbrytare! Du är en problemlösare som kan förvandla komplexa idéer till eleganta lösningar. Du tänker långt före din tid.",
-		"image": "./assets/images/teknik/result/ada-lovelace.png"
-	},
-	{
-		"id": 2,
-		"name": "Bill Gates",
-		"text": "Du har en entreprenörsanda och ett sinne för innovation. Även om du är praktisk gillar du att tänka stort och skapa saker som förändrar världen.",
-		"image": "./assets/images/teknik/result/bill-gates.png"
-	},
-	{
-		"id": 3,
-		"name": "Annie Easley",
-		"text": "Du är en banbrytare i teknikvärlden. Med hårt arbete och passion kan du räkna ut allt - även de svåraste algoritmerna. NASA hade älskat dig!",
-		"image": "./assets/images/teknik/result/annie-easley.png"
-	},
-	{
-		"id": 4,
-		"name": "Tech Noob",
-		"text": "Du har precis börjat utforska teknikvärlden och har en barnslig fascination för allt nytt. Din nyfikenhet är din största tillgång!",
-		"image": "./assets/images/teknik/result/tech-noob.png"
-	},
-	{
-		"id": 5,
-		"name": "Teknikosaurus Rex",
-		"text": "Du är en levande fossil i teknikvärlden. Pekfingret är ditt bästa verktyg, men du har också en charmig koppling till det förflutna!",
-		"image": "./assets/images/teknik/result/teknikosaurus-rex.png"
-	}
+  {
+    "id": 1,
+    "name": "Ada Lovelace",
+    "text": "Visionär, tänkare och banbrytare! Du är en problemlösare som kan förvandla komplexa idéer till eleganta lösningar. Du tänker långt före din tid.",
+    "image": "./assets/images/teknik/result/ada-lovelace.png"
+  },
+  {
+    "id": 2,
+    "name": "Bill Gates",
+    "text": "Du har en entreprenörsanda och ett sinne för innovation. Även om du är praktisk gillar du att tänka stort och skapa saker som förändrar världen.",
+    "image": "./assets/images/teknik/result/bill-gates.png"
+  },
+  {
+    "id": 3,
+    "name": "Annie Easley",
+    "text": "Du är en banbrytare i teknikvärlden. Med hårt arbete och passion kan du räkna ut allt - även de svåraste algoritmerna. NASA hade älskat dig!",
+    "image": "./assets/images/teknik/result/annie-easley.png"
+  },
+  {
+    "id": 4,
+    "name": "Tech Noob",
+    "text": "Du har precis börjat utforska teknikvärlden och har en barnslig fascination för allt nytt. Din nyfikenhet är din största tillgång!",
+    "image": "./assets/images/teknik/result/tech-noob.png"
+  },
+  {
+    "id": 5,
+    "name": "Teknikosaurus Rex",
+    "text": "Du är en levande fossil i teknikvärlden. Pekfingret är ditt bästa verktyg, men du har också en charmig koppling till det förflutna!",
+    "image": "./assets/images/teknik/result/teknikosaurus-rex.png"
+  }
 ]
