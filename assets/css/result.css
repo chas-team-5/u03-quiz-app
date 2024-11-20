@@ -5,3 +5,14 @@
 #result-text {
   margin: var(--spacing-sm) 0;
 }
+
+canvas.confetti {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 460px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 100;
+}
