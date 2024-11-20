@@ -161,7 +161,6 @@ function checkAnswer() {
       quizProgress[currentStep] = "correct";
       countdownEl.textContent = "Rätt svar! Klicka för att gå vidare";
       countdownEl.classList.add("countdown--correct");
-      // selectedOption.closest("label").classList.add("answer-option--correct");
       score++;
     } else {
       // incorrect
@@ -172,6 +171,8 @@ function checkAnswer() {
     }
   }
 
+  localStorage.setItem("countdownTime", "∞");
+  saveQuiz(score, currentStep, questions, totalQuestions, quizProgress);
   printProgress();
   readyNext.style.display = "block";
 }
@@ -181,6 +182,11 @@ addEventListener("outOfTime", handleOutOfTime);
 
 // Eventlistener on overlay for click to continue
 readyNext.addEventListener("click", goToNext);
+
+// When countdownTime in localstorage is stopped ("∞")
+if (localStorage.getItem("countdownTime") === "∞") {
+  goToNext();
+}
 
 // Run this after main loader
 startQuiz();
