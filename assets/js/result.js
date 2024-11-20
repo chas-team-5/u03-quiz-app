@@ -36,7 +36,7 @@ if (category && currentStep === questions.length -1) {
 
 async function displayResult(category) {
 	const result = await fetchResult(category);
-	const img = document.createElement('img');
+	const img = document.createElement("img");
 	const character = result.find(item => item.id === resultId);
 
 	img.src = character.image;

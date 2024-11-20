@@ -1,4 +1,4 @@
-import { stepsCurrentEl, stepsTotalEl, questionTextEl, answerOptionsEl, countdownEl, progressEl, readyNext } from "./utils/elements.js";
+import { stepsCurrentEl, stepsTotalEl, questionImageEl, questionTextEl, answerOptionsEl, countdownEl, progressEl, readyNext } from "./utils/elements.js";
 import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
 import { shuffleArray, goToStart, goToResult } from "./utils/helpers.js";
@@ -60,7 +60,9 @@ function printProgress() {
 
 function printQuestion() {
 	if (!questions[currentStep]) return;
+	let questionImage = `<img src="${questions[currentStep].image}" alt="${questions[currentStep].question}" width="540" height="225">`;
 
+	questionImageEl.innerHTML = questionImage;
 	stepsCurrentEl.textContent = currentStep + 1;
 	questionTextEl.textContent = questions[currentStep].question;
 	stepsTotalEl.textContent = totalQuestions;
