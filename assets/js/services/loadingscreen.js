@@ -4,20 +4,20 @@ const loadingTextEl = document.getElementById("loading-text");
 let categoryText;
 
 if (category === "djur-och-natur") {
-    categoryText = "Gör dig redo för 'Djur & Natur'";
+  categoryText = "Gör dig redo för 'Djur & Natur'";
 }   else if (category === "teknik") {
-    categoryText = "Gör dig redo för 'Teknik'";
+  categoryText = "Gör dig redo för 'Teknik'";
 }
 
 function showSpinner(loadingText) {
-    let text = loadingText ?? categoryText;
+  let text = loadingText ?? categoryText;
 
-    loadingScreenEl.classList.remove("hidden");
-    loadingTextEl.innerHTML = text;
+  loadingScreenEl.classList.remove("hidden");
+  loadingTextEl.innerHTML = text;
 }
 
 function hideSpinner() {
-    loadingScreenEl.classList.add("hidden");
+  loadingScreenEl.classList.add("hidden");
 }
 
 export { showSpinner, hideSpinner }
