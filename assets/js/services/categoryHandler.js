@@ -10,8 +10,8 @@ function saveCategory(category) {
 }
 
 function selectCategory(e) {
-	setCategory(e);
-	goToQuiz();
+  setCategory(e);
+  goToQuiz();
 }
 
 export { setCategory, selectCategory }
