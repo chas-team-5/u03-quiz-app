@@ -1,0 +1,7 @@
+* {
+  margin: revert;
+}
+
+.category {
+  margin-top: var(--spacing-xl);
+}
