@@ -40,10 +40,16 @@ h2 {
 h3 {
   font-size: var(--font-size-heading-sm);
   line-height: 1.33;
-  /* font-weight: 600; */
 }
 
 h4 {
   font-size: var(--font-size-heading-xs);
   line-height: 1.2;
+}
+
+.article-container {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-md);
+  position: relative;
 }

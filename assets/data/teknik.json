@@ -1,0 +1,62 @@
+[
+	{
+		"id": 1,
+		"question": "Vilket företag utvecklade den första persondatorn?",
+		"options": ["IBM", "Apple", "Microsoft", "Dell"],
+		"correctAnswer": 1
+	},
+	{
+		"id": 2,
+		"question": "Vilket av följande är ett populärt programmeringsspråk?",
+		"options": ["HTML", "Python", "CSS", "SQL"],
+		"correctAnswer": 1
+	},
+	{
+		"id": 3,
+		"question": "Vilket av följande är en typ av cyberrymd?",
+		"options": ["LAN", "WAN", "VPN", "MAN"],
+		"correctAnswer": 2
+	},
+	{
+		"id": 4,
+		"question": "Vad kallas den teknik som används för att kommunicera över korta avstånd mellan enheter, som mobiltelefoner?",
+		"options": ["NFC", "GPS", "Wi-Fi", "Bluetooth"],
+		"correctAnswer": 3
+	},
+	{
+		"id": 5,
+		"question": "Vilken enhet används för att lagra data på lång sikt?",
+		"options": ["RAM", "CPU", "SSD", "GPU"],
+		"correctAnswer": 2
+	},
+	{
+		"id": 6,
+		"question": "Vilket av följande är en typ av cyberattack där ett system överbelastas?",
+		"options": ["Phishing", "DDoS", "Malware", "Spyware"],
+		"correctAnswer": 1
+	},
+	{
+		"id": 7,
+		"question": "Vilken av följande är en typ av webbserver?",
+		"options": ["Apache", "Photoshop", "WordPress", "Excel"],
+		"correctAnswer": 0
+	},
+	{
+		"id": 8,
+		"question": "Vilken typ av kabel används oftast för att koppla samman datorer i ett lokalt nätverk?",
+		"options": ["USB", "HDMI", "Ethernet", "VGA"],
+		"correctAnswer": 2
+	},
+	{
+		"id": 9,
+		"question": "Vilken typ av skadlig programvara syftar till att stjäla personlig information?",
+		"options": ["Virus", "Trojan", "Spyware", "Ransomware"],
+		"correctAnswer": 2
+	},
+	{
+		"id": 10,
+		"question": "Vilken av följande termer hänvisar till ett nätverk där flera enheter är kopplade?",
+		"options": ["Internet", "LAN", "VPN", "WAN"],
+		"correctAnswer": 1
+	}
+]

@@ -1,12 +1,8 @@
 /* QUIZ */
 
 .quiz {
-  position: relative;
-  display: flex;
-  flex-flow: column;
   align-items: center;
   text-align: center;
-  gap: var(--spacing-md);
 }
 
 /* STEPPER */
@@ -100,9 +96,7 @@
   border-color: var(--color-incorrect);
 }
 
-/* LOADER */
-
-#loading__screen {
+#loading-screen {
   position: absolute;
   top: 0;
   left: 0;
@@ -111,7 +105,7 @@
   background-color: var(--color-background);
 }
 
-.loading__text {
+.loading-text {
   font-size: var(--font-size-heading-md);
   color: var(--color-gray-dark);
   margin-bottom: var(--spacing-md);
@@ -144,7 +138,7 @@
 
 /* OVERLAY */
 
-#readyCheck {
+#ready-next {
   display: none;
   position: fixed;
   top: 0;

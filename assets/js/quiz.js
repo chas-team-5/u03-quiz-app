@@ -1,27 +1,20 @@
+import { stepsCurrentEl, stepsTotalEl, questionTextEl, answerOptionsEl, countdownEl, progressEl, readyNext } from "./utils/elements.js";
 import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
-import { shuffleArray, redirectToStartPage } from "./utils/helpers.js";
+import { shuffleArray, goToStart, goToResult } from "./utils/helpers.js";
 import { countdownInitialTime, startTimer, stopTimer } from "./services/timer.js";
 
-const stepsCurrent = document.getElementById("steps-current");
-const stepsTotal = document.getElementById("steps-total");
-const questionText = document.getElementById("question-text");
-const answerOptionsDisplay = document.getElementById("answer-options");
-const countdownDisplay = document.getElementById("countdown");
-const progressDisplay = document.getElementById("progress");
-const readyCheck = document.getElementById("readyCheck");
-
-const quizLength = 10;
+const totalQuestions = 10;
 const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
-let { score, currentStep, questions, quizProgress } = loadProgress(quizLength);
+let { score, currentStep, questions, quizProgress } = loadProgress(totalQuestions);
 
 let selectedOption;
 let correctOption;
 
 async function generateQuestions(category) {
 	questions = shuffleArray([...await fetchQuestions(category)]);
-	saveQuiz(score, currentStep, questions, quizProgress);
+	saveQuiz(score, currentStep, questions, totalQuestions, quizProgress);
 	printProgress();
 	printQuestion();
 	printAnswers();
@@ -37,15 +30,15 @@ async function startQuiz() {
 		printProgress();
 		printQuestion();
 		printAnswers();
-		startTimer(countdownDisplay);
+		startTimer(countdownEl);
 
 	} else {
-		redirectToStartPage();
+		goToStart();
 	}
 }
 
 function printProgress() {
-	progressDisplay.innerHTML = "";
+	progressEl.innerHTML = "";
 
 	quizProgress.forEach((step) => {
 		const li = document.createElement("li");
@@ -61,16 +54,16 @@ function printProgress() {
 			li.innerHTML = `<i class="fas fa-circle"></i>`
 		}
 
-		progressDisplay.appendChild(li);
+		progressEl.appendChild(li);
 	});
 }
 
 function printQuestion() {
 	if (!questions[currentStep]) return;
 
-	stepsCurrent.textContent = currentStep + 1;
-	questionText.textContent = questions[currentStep].question;
-	stepsTotal.textContent = quizLength;
+	stepsCurrentEl.textContent = currentStep + 1;
+	questionTextEl.textContent = questions[currentStep].question;
+	stepsTotalEl.textContent = totalQuestions;
 }
 
 function printAnswers() {
@@ -81,11 +74,11 @@ function printAnswers() {
 		optionIndex: index
 	}));
 
-	answerOptionsDisplay.innerHTML = "";
+	answerOptionsEl.innerHTML = "";
 	answerOptions = shuffleArray(answerOptions);
 
 	answerOptions.forEach((item) => {
-		answerOptionsDisplay.innerHTML += `
+		answerOptionsEl.innerHTML += `
 			<label class="answer-option">
 				<input type="radio" name="options" value="${item.text.toLowerCase()}" id="option-${item.optionIndex}" data-id="${item.optionIndex}">
 				<span>${item.text}</span>
@@ -99,30 +92,29 @@ function printAnswers() {
 // ---
 
 // Hide overlay and progress setup for next question/result
-function proceedToNext() {
-	readyCheck.style.display = "none";
+function goToNext() {
+	readyNext.style.display = "none";
 	// Move to next step
-	if (currentStep < quizLength - 1) {
+	if (currentStep < totalQuestions - 1) {
 		// Update step
 		currentStep++;
-		nextQuestion();
+		showNextQuestion();
 	} else {
-		// To result on quiz end
-		window.location.href = "result.html";
+		goToResult();
 	}
 
-	saveQuiz(score, currentStep, questions, quizProgress); // Maybe move to handleAnswer
+	saveQuiz(score, currentStep, questions, totalQuestions, quizProgress); // Maybe move to handleAnswer
 }
 
 // ---
 
 // Reset answer indicators and load next question
-function nextQuestion() {
+function showNextQuestion() {
 	localStorage.setItem("countdownTime", countdownTime);
-	countdownDisplay.classList.remove("countdown--correct", "countdown--incorrect");
+	countdownEl.classList.remove("countdown--correct", "countdown--incorrect");
 	printQuestion();
 	printAnswers();
-	startTimer(countdownDisplay);
+	startTimer(countdownEl);
 }
 
 // ---
@@ -145,44 +137,45 @@ function updateCorrectOption() {
 }
 
 function checkAnswer() {
+	let correctOptionEl = document.getElementById(`option-${correctOption}`).closest("label");
 
+	correctOptionEl.closest("label").classList.add("answer-option--correct");
 	stopTimer();
 
 	if (selectedOption === null) {
 		// outOfTime
 		quizProgress[currentStep] = "incorrect";
-		countdownDisplay.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
-		countdownDisplay.classList.add("countdown--incorrect");
+		countdownEl.textContent = "Du svarade inte i tid! Klicka för att gå vidare";
+		countdownEl.classList.add("countdown--incorrect");
 	} else {
 		const correct = parseInt(selectedOption.dataset.id) === correctOption;
-
 		selectedOption.closest("label").classList.add("answer-option--selected")
 
 		if (correct) {
 			// correct
 			quizProgress[currentStep] = "correct";
-			countdownDisplay.textContent = "Rätt svar! Klicka för att gå vidare";
-			countdownDisplay.classList.add("countdown--correct");
-			selectedOption.closest("label").classList.add("answer-option--correct");
+			countdownEl.textContent = "Rätt svar! Klicka för att gå vidare";
+			countdownEl.classList.add("countdown--correct");
+			// selectedOption.closest("label").classList.add("answer-option--correct");
 			score++;
 		} else {
 			// incorrect
 			quizProgress[currentStep] = "incorrect";
-			countdownDisplay.textContent = "Fel svar! Klicka för att gå vidare";
-			countdownDisplay.classList.add("countdown--incorrect");
+			countdownEl.textContent = "Fel svar! Klicka för att gå vidare";
+			countdownEl.classList.add("countdown--incorrect");
 			selectedOption.closest("label").classList.add("answer-option--incorrect");
 		}
 	}
 
 	printProgress();
-	readyCheck.style.display = "block";
+	readyNext.style.display = "block";
 }
 
-answerOptionsDisplay.addEventListener("click", setSelectedOption);
+answerOptionsEl.addEventListener("click", setSelectedOption);
 addEventListener("outOfTime", handleOutOfTime);
 
 // Eventlistener on overlay for click to continue
-readyCheck.addEventListener("click", proceedToNext);
+readyNext.addEventListener("click", goToNext);
 
 // Run this after main loader
 startQuiz();

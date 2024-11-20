@@ -1,6 +1,6 @@
 const outOfTimeEvent = new CustomEvent("outOfTime");
 
-const countdownInitialTime = 5; // Set to 5 for dev, was 20
+const countdownInitialTime = 20;
 let timeOut;
 let countdownInterval;
 

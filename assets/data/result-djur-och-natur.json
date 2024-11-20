@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"name": "Sir David Attenborough",
+		"text": "Du är en världsutforskare som inspirerar andra att värna om planeten. Din passion för naturen är oöverträffad, och du kan säkert rabbla mer om arter än någon annan i rummet!",
+		"image": "./assets/images/djur-och-natur/result/sir-david-attenborough.png"
+	},
+	{
+		"id": 2,
+		"name": "Jane Goodall",
+		"text": "Med ditt hjärta hos djuren och din beslutsamhet att göra världen bättre är du en sann förespråkare för naturens balans. Chimpanserna skulle vara stolta!",
+		"image": "./assets/images/djur-och-natur/result/jane-goodall.png"
+	},
+	{
+		"id": 3,
+		"name": "Steve Irwin",
+		"text": "Krokodiljägare och naturälskare! Du är orädd, entusiastisk och kan inte hålla dig borta från äventyr i naturen. Ditt motto? 'Crikey, vilken dag för att rädda världen!'",
+		"image": "./assets/images/djur-och-natur/result/steve-irwin.png"
+	},
+	{
+		"id": 4,
+		"name": "Dora the Explorer",
+		"text": "Du har en oändlig nyfikenhet och älskar att utforska världen - även om det ibland är genom din fantasi. 'Vart ska vi idag?' är din signaturfråga.",
+		"image": "./assets/images/djur-och-natur/result/dora-the-explorer.png"
+	},
+	{
+		"id": 5,
+		"name": "Du är en naturförnekare",
+		"text": "Har du någonsin varit ute? Vet du vad naturen är? Kanske är det dags att öppna dörren och känna doften av frisk luft för första gången!",
+		"image": "./assets/images/djur-och-natur/result/naturfornekare.png"
+	}
+]

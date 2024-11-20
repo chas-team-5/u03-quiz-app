@@ -1,7 +1,4 @@
 .result {
-  display: flex;
-  flex-flow: column;
-  gap: var(--spacing-md);
   text-align: center;
 }
 

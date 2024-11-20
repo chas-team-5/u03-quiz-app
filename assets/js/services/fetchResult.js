@@ -1,27 +1,27 @@
 import { showSpinner, hideSpinner } from "./loadingScreen.js";
 
-async function fetchQuestions(category) {
-  showSpinner();
+async function fetchResult(category) {
+  showSpinner("Hämtar resultat…");
 
   try {
     const response = await new Promise((resolve) => {
       setTimeout(async () => {
-        resolve(await fetch(`assets/data/${category}.json`));
-      }, 3000);
+        resolve(await fetch(`assets/data/result-${category}.json`));
+      }, 1500);
     })
 
     if (!response.ok) {
-      throw new Error("Failed to load questions");
+      throw new Error("Failed to load result");
     }
 
     const data = await response.json();
     return data;
 
   } catch (error) {
-      console.error("Error fetching questions:", error);
+      console.error("Error fetching result:", error);
   } finally {
     hideSpinner();
   }
 }
 
-export { fetchQuestions }
+export { fetchResult }
