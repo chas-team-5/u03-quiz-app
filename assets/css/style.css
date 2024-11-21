@@ -1,4 +1,5 @@
 @import url(./utils/reset.css);
+@import url(./utils/fonts.css);
 @import url(./utils/variables.css);
 @import url(./index.css);
 @import url(./quiz.css);
@@ -10,14 +11,10 @@
 
 body {
   margin: var(--spacing-sm);
-
-  user-select: none;
-
   font-family: "Outfit", Arial, Helvetica, sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-
   background-color: var(--color-background);
 }
 

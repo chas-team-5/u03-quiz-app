@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../../webfonts/Outfit-Regular.woff2') format('woff2'),
+    url('../../webfonts/Outfit-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../../webfonts/Outfit-Medium.woff2') format('woff2'),
+    url('../../webfonts/Outfit-Medium.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 600;
+  font-style: normal;
+  src: url('../../webfonts/Outfit-SemiBold.woff2') format('woff2'),
+    url('../../webfonts/Outfit-SemiBold.woff') format('woff');
+  font-display: swap;
+}
+
