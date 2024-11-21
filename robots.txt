@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /quiz.html
+Sitemap: https://chas-team-5.github.io/u03-quiz-app/sitemap.xml
