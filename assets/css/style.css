@@ -93,3 +93,14 @@ ul {
   color: var(--color-white);
   background-color: var(--color-black-absolute);
 }
+
+.quiz-selection-text {
+  font-size: var(--font-size-heading-sm);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.quiz-selection-text > span {
+  display: inline-block;
+}
