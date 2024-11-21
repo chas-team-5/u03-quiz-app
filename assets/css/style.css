@@ -10,12 +10,18 @@
 /* GLOBAL */
 
 body {
+  background-color: var(--color-background);
   margin: var(--spacing-sm);
   font-family: "Outfit", Arial, Helvetica, sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-color: var(--color-background);
+}
+
+.container {
+  max-width: var(--max-width-lg);
+  margin: 0 auto;
+  padding-inline: var(--spacing-md);
 }
 
 header {
