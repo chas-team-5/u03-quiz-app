@@ -2,31 +2,31 @@
   {
     "id": 1,
     "name": "Sir David Attenborough",
-    "text": "Du är en världsutforskare som inspirerar andra att värna om planeten. Din passion för naturen är oöverträffad, och du kan säkert rabbla mer om arter än någon annan i rummet!",
+    "text": "Det du inte kan om naturen är inte värt att veta. Du klär dig säkert i grönt och brunt och tillbringar dina dagar ute i det gröna. Du äter vegetariskt och skulle aldrig skada en fluga. Om någon kommer rädda planeten är det du!",
     "image": "./assets/images/djur-och-natur/result/sir-david-attenborough.png"
   },
   {
     "id": 2,
     "name": "Jane Goodall",
-    "text": "Med ditt hjärta hos djuren och din beslutsamhet att göra världen bättre är du en sann förespråkare för naturens balans. Chimpanserna skulle vara stolta!",
+    "text": "Språk är makt och du kan verkligen kommunicera med djuren. Move over Dr Dolittle! Ditt hjärta finns hos våra förfäder aporna men du har dina begränsningar när det gäller “de mindre kommunikativa arterna”: krokodiler, komodovaraner eller bönsyrsor. Så akta dig!",
     "image": "./assets/images/djur-och-natur/result/jane-goodall.png"
   },
   {
     "id": 3,
     "name": "Steve Irwin",
-    "text": "Krokodiljägare och naturälskare! Du är orädd, entusiastisk och kan inte hålla dig borta från äventyr i naturen. Ditt motto? 'Crikey, vilken dag för att rädda världen!'",
+    "text": "Du kan mycket men inte allt och övermod kan vara ödesdigert. Vi vet alla vad som hände Steve… (Googla)",
     "image": "./assets/images/djur-och-natur/result/steve-irwin.png"
   },
   {
     "id": 4,
     "name": "Dora the Explorer",
-    "text": "Du har en oändlig nyfikenhet och älskar att utforska världen - även om det ibland är genom din fantasi. 'Vart ska vi idag?' är din signaturfråga.",
+    "text": "Misströsta inte! Du är nyfiken men kan inte så mycket… än.",
     "image": "./assets/images/djur-och-natur/result/dora-the-explorer.png"
   },
   {
     "id": 5,
     "name": "Du är en naturförnekare",
-    "text": "Har du någonsin varit ute? Vet du vad naturen är? Kanske är det dags att öppna dörren och känna doften av frisk luft för första gången!",
+    "text": "Det finns en hel värld fylld med skönhet och skräck där ute, som bara väntar på att upptäckas. Men tydligen har du aldrig lockats bortom din datorskärm. Finns det hopp? Eller förresten, håll dig bara till vårt teknikquiz.",
     "image": "./assets/images/djur-och-natur/result/naturfornekare.png"
   }
 ]
