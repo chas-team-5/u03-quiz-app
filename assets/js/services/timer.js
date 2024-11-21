@@ -24,7 +24,7 @@ function startTimer(countdownDisplay) {
   }
 
   countdownInterval = setInterval(printCountdown, 1000);
-  timeOut = setTimeout(() => handleTimeout(countdownDisplay), countdownInitialTime * 1000); // Do we need timeOut?
+  timeOut = setTimeout(() => handleTimeout(countdownDisplay), countdownInitialTime * 1000);
 }
 
 function stopTimer() {
