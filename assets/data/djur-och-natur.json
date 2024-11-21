@@ -4,69 +4,69 @@
     "question": "Vilket av följande djur är det snabbaste på land?",
     "options": ["Gepard", "Lejon", "Struts", "Kanin"],
     "correctAnswer": 0,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-1.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-1.webp"
   },
   {
     "id": 2,
     "question": "Vilket av följande djur är känt för att kunna ändra färg?",
     "options": ["Kameleont", "Hund", "Elefant", "Lejon"],
     "correctAnswer": 0,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-2.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-2.webp"
   },
   {
     "id": 3,
     "question": "Vilket av följande träd är en vanlig symbol för Sverige?",
     "options": ["Ek", "Björk", "Gran", "Tall"],
     "correctAnswer": 1,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-3.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-3.webp"
   },
   {
     "id": 4,
     "question": "Vilken av följande arter är känd för att ha det starkaste bettet?",
     "options": ["Lejon", "Krokodil", "Tiger", "Hyena"],
     "correctAnswer": 1,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-4.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-4.webp"
   },
   {
     "id": 5,
     "question": "Vad kallas det område där ett djur naturligt lever och frodas?",
     "options": ["Habitat", "Biotop", "Territorium", "Nisch"],
     "correctAnswer": 0,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-5.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-5.webp"
   },
   {
     "id": 6,
     "question": "Vilket av följande djur kan flyga bakåt?",
     "options": ["Kolibri", "Höna", "Uggla", "Duv"],
     "correctAnswer": 0,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-6.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-6.webp"
   },
   {
     "id": 7,
     "question": "Vilken typ av ekosystem domineras av stora träd och riklig vegetation?",
     "options": ["Öken", "Savann", "Regnskog", "Tundra"],
     "correctAnswer": 2,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-7.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-7.webp"
   },
   {
     "id": 8,
     "question": "Vad kallas det största landlevande djuret?",
     "options": ["Noshörning", "Elefant", "Giraff", "Isbjörn"],
     "correctAnswer": 1,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-8.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-8.webp"
   },
   {
     "id": 9,
     "question": "Vilket av följande djur är känt för sina långdistansflygningar?",
     "options": ["Sparv", "Svala", "Kolibri", "Kaja"],
     "correctAnswer": 1,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-9.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-9.webp"
   },
   {
     "id": 10,
     "question": "Vilken typ av växt är känd för att överleva i extrema miljöer, som till exempel öknen?",
     "options": ["Kaktus", "Orkidé", "Barrträd", "Ros"],
     "correctAnswer": 0,
-    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-10.png"
+    "image": "./assets/images/djur-och-natur/questions/djur-och-natur-question-10.webp"
   }
 ]

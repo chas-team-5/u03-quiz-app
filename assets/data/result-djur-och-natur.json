@@ -3,30 +3,30 @@
     "id": 1,
     "name": "Sir David Attenborough",
     "text": "Det du inte kan om naturen är inte värt att veta. Du klär dig säkert i grönt och brunt och tillbringar dina dagar ute i det gröna. Du äter vegetariskt och skulle aldrig skada en fluga. Om någon kommer rädda planeten är det du!",
-    "image": "./assets/images/djur-och-natur/result/sir-david-attenborough.png"
+    "image": "./assets/images/djur-och-natur/result/sir-david-attenborough.webp"
   },
   {
     "id": 2,
     "name": "Jane Goodall",
     "text": "Språk är makt och du kan verkligen kommunicera med djuren. Move over Dr Dolittle! Ditt hjärta finns hos våra förfäder aporna men du har dina begränsningar när det gäller “de mindre kommunikativa arterna”: krokodiler, komodovaraner eller bönsyrsor. Så akta dig!",
-    "image": "./assets/images/djur-och-natur/result/jane-goodall.png"
+    "image": "./assets/images/djur-och-natur/result/jane-goodall.webp"
   },
   {
     "id": 3,
     "name": "Steve Irwin",
     "text": "Du kan mycket men inte allt och övermod kan vara ödesdigert. Vi vet alla vad som hände Steve… (Googla)",
-    "image": "./assets/images/djur-och-natur/result/steve-irwin.png"
+    "image": "./assets/images/djur-och-natur/result/steve-irwin.webp"
   },
   {
     "id": 4,
     "name": "Dora the Explorer",
     "text": "Misströsta inte! Du är nyfiken men kan inte så mycket… än.",
-    "image": "./assets/images/djur-och-natur/result/dora-the-explorer.png"
+    "image": "./assets/images/djur-och-natur/result/dora-the-explorer.webp"
   },
   {
     "id": 5,
     "name": "Du är en naturförnekare",
     "text": "Det finns en hel värld fylld med skönhet och skräck där ute, som bara väntar på att upptäckas. Men tydligen har du aldrig lockats bortom din datorskärm. Finns det hopp? Eller förresten, håll dig bara till vårt teknikquiz.",
-    "image": "./assets/images/djur-och-natur/result/naturfornekare.png"
+    "image": "./assets/images/djur-och-natur/result/naturfornekare.webp"
   }
 ]
