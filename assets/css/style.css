@@ -20,6 +20,7 @@ body {
 .container {
   max-width: var(--max-width-lg);
   margin: 0 auto;
+  padding-inline: var(--spacing-md);
 }
 
 header {
@@ -28,13 +29,6 @@ header {
   align-items: center;
   margin-top: var(--spacing-xl);
   margin-bottom: var(--spacing-md);
-}
-
-.container > header,
-.container > main,
-.container > article {
-  width: 100%;
-  margin-inline: var(--spacing-md);
 }
 
 .nav-links {
