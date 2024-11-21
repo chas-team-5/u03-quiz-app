@@ -38,6 +38,8 @@ async function displayResult(category) {
   const result = await fetchResult(category);
   const img = document.createElement("img");
   const character = result.find(item => item.id === resultId);
+  var confettiCanvas = document.createElement("canvas");
+  confettiCanvas.classList.add("confetti");
 
   img.src = character.image;
   img.alt = character.name;
@@ -47,6 +49,18 @@ async function displayResult(category) {
   resultEl.insertBefore(img, resultNameEl);
   resultNameEl.textContent = character.name + "!";
   resultTextEl.textContent = character.text;
+
+  resultEl.prepend(confettiCanvas);
+  const confettiFire = confetti.create(confettiCanvas, { resize: true });
+
+  confettiFire({
+    particleCount: 100,
+    startVelocity: 30,
+    spread: 90
+  });
+  setTimeout(() => {
+    confettiFire.reset();
+  }, 5000);
 }
 
 startGameEl.addEventListener("click", (e) => {
