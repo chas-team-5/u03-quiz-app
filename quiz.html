@@ -18,32 +18,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
-<body>
-  <header>
-    <img class="header-logo" src="./assets/images/logo.svg" alt="Quiz, Hitta ditt inre">
-  </header>
+<body class="quiz">
+  <div class="container">
+    <header>
+      <a href="./">
+        <img class="header-logo" src="./assets/images/quiz-hitta-ditt-inre-logo.svg" alt="Quiz, Hitta ditt inre">
+      </a>
+    </header>
 
-  <article class="article-container quiz">
-    <p class="stepper">
-      Fråga <output id="steps-current"></output> av <output id="steps-total"></output>
-    </p>
+    <article class="article-container quiz">
+      <p class="stepper">
+        Fråga <output id="steps-current"></output> av <output id="steps-total"></output>
+      </p>
 
-    <ul id="progress"></ul>
-    <figure id="question-img"></figure>
+      <ul id="progress"></ul>
+      <figure id="question-img"></figure>
 
-    <h3 id="question-text">Fråga</h3>
+      <h3 id="question-text">Fråga</h3>
 
-    <span class="countdown" id="countdown"></span>
-    <div id="answer-options">
-      <!-- answer__button--inactive answer__button--correct answer__button--incorrect answer__button--selected -->
-    </div>
-    <div id="loading-screen" class="hidden">
-      <h3 id="loading-text" class="loading-text gradient-horizontal"></h3>
-      <p class="information">Du har 20 sekunder per fråga, så var snabb med svaren!</p>
-      <div id="spinner" class="loader"></div>
-    </div>
-  </article>
-  <div id="ready-next"></div>
+      <span class="countdown" id="countdown"></span>
+      <div id="answer-options"></div>
+
+      <div id="loading-screen" class="hidden">
+        <h3 id="loading-text" class="loading-text gradient-horizontal"></h3>
+        <p class="information">Du har 20 sekunder per fråga, så var snabb med svaren!</p>
+        <div id="spinner" class="loader"></div>
+      </div>
+
+      <div id="ready-next" class="hidden"></div>
+    </article>
+  </div>
 </body>
 
 </html>

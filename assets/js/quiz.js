@@ -98,7 +98,7 @@ function printAnswers() {
 
 // Hide overlay and progress setup for next question/result
 function goToNext() {
-  readyNext.style.display = "none";
+  readyNext.classList.add("hidden");
   // Move to next step
   if (currentStep < totalQuestions - 1) {
     // Update step
@@ -174,7 +174,7 @@ function checkAnswer() {
   localStorage.setItem("countdownTime", "∞");
   saveQuiz(score, currentStep, questions, totalQuestions, quizProgress);
   printProgress();
-  readyNext.style.display = "block";
+  readyNext.classList.remove("hidden");
 }
 
 answerOptionsEl.addEventListener("click", setSelectedOption);

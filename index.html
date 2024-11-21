@@ -22,10 +22,19 @@
   <script type="module" src="./assets/js/start.js"></script>
 </head>
 
-<body>
-  <header>
-    <img class="header-logo" src="./assets/images/logo.svg" alt="Quiz, Hitta ditt inre">
-  </header>
+<body class="start">
+  <div class="container">
+    <header>
+      <img class="header-logo" src="./assets/images/quiz-hitta-ditt-inre-logo.svg" alt="Quiz, Hitta ditt inre">
+
+      <nav class="main-navigation" aria-label="Huvudnavigering">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="about.html" class="cta cta-inverted nav-link">Om quizet</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
     <article class="content">
       <img class="index-img" src="./assets/images/quiz-hero.webp" width="540" height="294" alt="index-image">
@@ -42,5 +51,6 @@
         <button class="cta" type="button" data-category="teknik">Teknik</button>
       </div>
     </article>
+  </div>
 </body>
 </html>
