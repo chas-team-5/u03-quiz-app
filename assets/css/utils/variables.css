@@ -28,8 +28,10 @@
   --spacing-lg: 2rem;
   --spacing-md: 1.5rem;
   --spacing-sm: 1rem;
-  --spacing-xs: 0.5rem
+  --spacing-xs: 0.5rem;
+
+  /* Container Widths */
+  --max-width-lg: 62.5rem;
 
   /* Misc */
-
 }

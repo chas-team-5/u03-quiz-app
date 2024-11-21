@@ -28,72 +28,84 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
-<body>
-  <header>
-    <img class="header-logo" src="./assets/images/logo.svg" alt="Quiz, Hitta ditt inre">
-  </header>
+<body class="about">
+  <div class="container">
+    <header>
+      <a href="./">
+        <img class="header-logo" src="./assets/images/quiz-hitta-ditt-inre-logo.svg" alt="Quiz, Hitta ditt inre">
+      </a>
 
-  <main>
-    <!-- Possibly <h1> -->
-    <h2>Vad handlar vårt quiz om?</h2>
-    <!-- Possibly one <p> elem with double <br> instead of three separate <p> -->
-    <p>
-      Vårt online quiz är till för att du ska lära dig mer och testa dina kunskaper i våra spännande kategorier på ett
-      roligt sätt. Frågorna är skapade för att uppmana till eftertanke och skratt.
-    </p>
-    <p>
-      Du får 10 frågor och fyra svarsalternativ. Du har 20 sekunder på dig att svara på varje fråga. I slutresultatet
-      får du veta hur många rätt du har och vilken karaktär du är.
-    </p>
-    <p>
-      Nedan hittar du beskrivningar av våra kategorier. Läs dem gärna så kanske du får ett ännu bättre resultat!
-    </p>
+      <nav class="main-navigation" aria-label="Huvudnavigering">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="./" class="cta cta-inverted nav-link">Hem</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-    <article class="about-category">
-      <!-- Possible container to make 2 columns in desktop-view -->
-      <!-- Possibly <h2> -->
-      <h3>Djur och natur</h3>
+    <main>
+      <!-- Possibly <h1> -->
+      <h2>Vad handlar vårt quiz om?</h2>
+      <!-- Possibly one <p> elem with double <br> instead of three separate <p> -->
       <p>
-        Utforska vår fascinerande värld av djur och natur i denna spännande kategori. Här kan du testa dina kunskaper om
-        allt från vilda djur till växter. Oavsett om du aldrig satt foten i naturen eller det är ditt andra hem erbjuder
-        vårt roliga quiz frågor för alla.
+        Vårt online quiz är till för att du ska lära dig mer och testa dina kunskaper i våra spännande kategorier på ett
+        roligt sätt. Frågorna är skapade för att uppmana till eftertanke och skratt.
       </p>
       <p>
-        Lär dig mer om djurens beteenden och växternas betydelse. Ta vårt quiz och
-        upptäck hur mycket du egentligen vet om den fantastiska naturen som omger oss!
-      </p>
-      <button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
-
-      <h4>Lär dig mer</h4>
-      <ul>
-        <li><a href="#">National geographic</a></li>
-        <li><a href="#">WWF</a></li>
-      </ul>
-    </article>
-
-    <article class="about-category">
-      <!-- Possibly <h2> -->
-      <h3>Teknik</h3>
-      <p>
-        Välkommen till teknikens värld! I denna kategori får du testa dina kunskaper om allt från datordelar till
-        tekniska genombrott. Utmana dig själv med frågor om datorer, smartphones, cybersäkerhet och mycket mer. Oavsett
-        om du är en teknikfantast eller bara nyfiken på hur mycket du faktiskt kan om tekniken som kommer att forma vår
-        framtid och liv, har vårt roliga quiz något för alla.
+        Du får 10 frågor och fyra svarsalternativ. Du har 20 sekunder på dig att svara på varje fråga. I slutresultatet
+        får du veta hur många rätt du har och vilken karaktär du är.
       </p>
       <p>
-        Lär dig mer om teknik. Ta vårt quiz och visa hur mycket du
-        vet om den spännande tekniska utvecklingen!
+        Nedan hittar du beskrivningar av våra kategorier. Läs dem gärna så kanske du får ett ännu bättre resultat!
       </p>
-      <button class="cta" type="button" data-category="teknik">Teknik</button>
 
-      <h4>Lär dig mer</h4>
-      <ul>
-        <li><a href="#">W3School</a></li>
-        <li><a href="#">Dagens teknik</a></li>
-        <li><a href="#">Illustrerad vetenskap</a></li>
-      </ul>
-    </article>
-  </main>
+      <article class="about-category">
+        <!-- Possible container to make 2 columns in desktop-view -->
+        <!-- Possibly <h2> -->
+        <h3>Djur och natur</h3>
+        <p>
+          Utforska vår fascinerande värld av djur och natur i denna spännande kategori. Här kan du testa dina kunskaper om
+          allt från vilda djur till växter. Oavsett om du aldrig satt foten i naturen eller det är ditt andra hem erbjuder
+          vårt roliga quiz frågor för alla.
+        </p>
+        <p>
+          Lär dig mer om djurens beteenden och växternas betydelse. Ta vårt quiz och
+          upptäck hur mycket du egentligen vet om den fantastiska naturen som omger oss!
+        </p>
+        <button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
+
+        <h4>Lär dig mer</h4>
+        <ul>
+          <li><a href="#">National geographic</a></li>
+          <li><a href="#">WWF</a></li>
+        </ul>
+      </article>
+
+      <article class="about-category">
+        <!-- Possibly <h2> -->
+        <h3>Teknik</h3>
+        <p>
+          Välkommen till teknikens värld! I denna kategori får du testa dina kunskaper om allt från datordelar till
+          tekniska genombrott. Utmana dig själv med frågor om datorer, smartphones, cybersäkerhet och mycket mer. Oavsett
+          om du är en teknikfantast eller bara nyfiken på hur mycket du faktiskt kan om tekniken som kommer att forma vår
+          framtid och liv, har vårt roliga quiz något för alla.
+        </p>
+        <p>
+          Lär dig mer om teknik. Ta vårt quiz och visa hur mycket du
+          vet om den spännande tekniska utvecklingen!
+        </p>
+        <button class="cta" type="button" data-category="teknik">Teknik</button>
+
+        <h4>Lär dig mer</h4>
+        <ul>
+          <li><a href="#">W3School</a></li>
+          <li><a href="#">Dagens teknik</a></li>
+          <li><a href="#">Illustrerad vetenskap</a></li>
+        </ul>
+      </article>
+    </main>
+  </div>
 </body>
 
 </html>

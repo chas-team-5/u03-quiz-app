@@ -137,13 +137,18 @@
 /* OVERLAY */
 
 #ready-next {
-  display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  z-index: 1;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#ready-next:not(.hidden) {
+  z-index: 1000;
   cursor: pointer;
+  pointer-events: all;
 }
