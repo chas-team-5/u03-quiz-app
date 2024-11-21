@@ -63,6 +63,10 @@ ul {
   list-style: none;
 }
 
+a {
+  color: var(--color-anchor);
+}
+
 .article-container {
   display: flex;
   flex-flow: column;
@@ -103,4 +107,8 @@ ul {
 
 .quiz-selection-text > span {
   display: inline-block;
+}
+
+article li {
+  line-height: 1.6;
 }
