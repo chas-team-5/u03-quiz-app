@@ -1,7 +1,7 @@
 import { showSpinner, hideSpinner } from "./loadingScreen.js";
 
 async function fetchResult(category) {
-  showSpinner("Hämtar resultat…");
+  showSpinner();
 
   try {
     const response = await new Promise((resolve) => {

@@ -1,10 +1,9 @@
-import { stepsCurrentEl, stepsTotalEl, questionImageEl, questionTextEl, answerOptionsEl, countdownEl, progressEl, readyNext } from "./utils/elements.js";
+import { totalQuestions, stepsCurrentEl, stepsTotalEl, questionImageEl, questionTextEl, answerOptionsEl, countdownEl, progressEl, readyNext } from "./utils/elements.js";
 import { loadProgress, saveQuiz } from "./services/localStorage.js";
 import { fetchQuestions } from "./services/fetchQuestions.js";
 import { shuffleArray, goToStart, goToResult } from "./utils/helpers.js";
 import { countdownInitialTime, startTimer, stopTimer } from "./services/timer.js";
 
-const totalQuestions = 10;
 const countdownTime = countdownInitialTime;
 let category = localStorage.getItem("selectedCategory");
 let { score, currentStep, questions, quizProgress } = loadProgress(totalQuestions);
