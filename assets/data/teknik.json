@@ -4,69 +4,69 @@
     "question": "Vilket företag utvecklade den första persondatorn?",
     "options": ["IBM", "Apple", "Microsoft", "Dell"],
     "correctAnswer": 1,
-    "image": "./assets/images/teknik/questions/teknik-question-1.png"
+    "image": "./assets/images/teknik/questions/teknik-question-1.webp"
   },
   {
     "id": 2,
     "question": "Vilket av följande är ett populärt programmeringsspråk?",
     "options": ["HTML", "Python", "CSS", "SQL"],
     "correctAnswer": 1,
-    "image": "./assets/images/teknik/questions/teknik-question-2.png"
+    "image": "./assets/images/teknik/questions/teknik-question-2.webp"
   },
   {
     "id": 3,
     "question": "Vilket av följande är en typ av cyberrymd?",
     "options": ["LAN", "WAN", "VPN", "MAN"],
     "correctAnswer": 2,
-    "image": "./assets/images/teknik/questions/teknik-question-3.png"
+    "image": "./assets/images/teknik/questions/teknik-question-3.webp"
   },
   {
     "id": 4,
     "question": "Vad kallas den teknik som används för att kommunicera över korta avstånd mellan enheter, som mobiltelefoner?",
     "options": ["NFC", "GPS", "Wi-Fi", "Bluetooth"],
     "correctAnswer": 3,
-    "image": "./assets/images/teknik/questions/teknik-question-4.png"
+    "image": "./assets/images/teknik/questions/teknik-question-4.webp"
   },
   {
     "id": 5,
     "question": "Vilken enhet används för att lagra data på lång sikt?",
     "options": ["RAM", "CPU", "SSD", "GPU"],
     "correctAnswer": 2,
-    "image": "./assets/images/teknik/questions/teknik-question-5.png"
+    "image": "./assets/images/teknik/questions/teknik-question-5.webp"
   },
   {
     "id": 6,
     "question": "Vilket av följande är en typ av cyberattack där ett system överbelastas?",
     "options": ["Phishing", "DDoS", "Malware", "Spyware"],
     "correctAnswer": 1,
-    "image": "./assets/images/teknik/questions/teknik-question-6.png"
+    "image": "./assets/images/teknik/questions/teknik-question-6.webp"
   },
   {
     "id": 7,
     "question": "Vilken av följande är en typ av webbserver?",
     "options": ["Apache", "Photoshop", "WordPress", "Excel"],
     "correctAnswer": 0,
-    "image": "./assets/images/teknik/questions/teknik-question-7.png"
+    "image": "./assets/images/teknik/questions/teknik-question-7.webp"
   },
   {
     "id": 8,
     "question": "Vilken typ av kabel används oftast för att koppla samman datorer i ett lokalt nätverk?",
     "options": ["USB", "HDMI", "Ethernet", "VGA"],
     "correctAnswer": 2,
-    "image": "./assets/images/teknik/questions/teknik-question-8.png"
+    "image": "./assets/images/teknik/questions/teknik-question-8.webp"
   },
   {
     "id": 9,
     "question": "Vilken typ av skadlig programvara syftar till att stjäla personlig information?",
     "options": ["Virus", "Trojan", "Spyware", "Ransomware"],
     "correctAnswer": 2,
-    "image": "./assets/images/teknik/questions/teknik-question-9.png"
+    "image": "./assets/images/teknik/questions/teknik-question-9.webp"
   },
   {
     "id": 10,
     "question": "Vilken av följande termer hänvisar till ett nätverk där flera enheter är kopplade?",
     "options": ["Internet", "LAN", "VPN", "WAN"],
     "correctAnswer": 1,
-    "image": "./assets/images/teknik/questions/teknik-question-10.png"
+    "image": "./assets/images/teknik/questions/teknik-question-10.webp"
   }
 ]
