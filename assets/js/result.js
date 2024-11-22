@@ -38,7 +38,7 @@ async function displayResult(category) {
   const result = await fetchResult(category);
   const img = document.createElement("img");
   const character = result.find(item => item.id === resultId);
-  const resultLinkHtml = `<br>Läs mer om: <a href="${character.link}" target="_blank" rel="noopener noreferrer"> ${character.name}</a>`;
+  const resultLinkHtml = `<br><br>Läs mer om: <a href="${character.link}" target="_blank" rel="noopener noreferrer"> ${character.name}</a>`;
   var confettiCanvas = document.createElement("canvas");
   confettiCanvas.classList.add("confetti");
 
