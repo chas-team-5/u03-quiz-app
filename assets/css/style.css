@@ -1,11 +1,8 @@
 @import url(./utils/reset.css);
 @import url(./utils/fonts.css);
 @import url(./utils/variables.css);
-@import url(./index.css);
-@import url(./quiz.css);
-@import url(./result.css);
-@import url(./about.css);
 @import url(./utils/helper.css);
+@import url(./quiz.css);
 
 /* GLOBAL */
 
@@ -30,6 +27,10 @@ header {
   align-items: center;
   margin-top: var(--spacing-xl);
   margin-bottom: var(--spacing-md);
+}
+
+body.quiz header {
+  display: block;
 }
 
 .nav-links {
@@ -67,12 +68,67 @@ a {
   color: var(--color-anchor);
 }
 
+article li {
+  line-height: 1.6;
+}
+
+/* --- */
+
+.start,
+.quiz,
+.result {
+  text-align: center;
+}
+
+/* CONTAINERS */
+
 .article-container {
   display: flex;
   flex-flow: column;
-  gap: var(--spacing-md);
   position: relative;
+  /* text-align: center; */
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
 }
+
+.category-selection-container {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.result-content {
+  display: flex;
+  flex-flow: column;
+  gap: var(--spacing-sm);
+}
+
+/* --- */
+
+.quiz-selection-text {
+  font-size: var(--font-size-heading-xs);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.quiz-selection-text > span {
+  display: inline-block;
+}
+
+/* CONFETTI */
+
+canvas.confetti {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 460px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* BUTTONS */
 
 .cta {
   width: 8rem;
@@ -96,19 +152,4 @@ a {
 .cta.cta-inverted:hover {
   color: var(--color-white);
   background-color: var(--color-black-absolute);
-}
-
-.quiz-selection-text {
-  font-size: var(--font-size-heading-sm);
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 0;
-}
-
-.quiz-selection-text > span {
-  display: inline-block;
-}
-
-article li {
-  line-height: 1.6;
 }
