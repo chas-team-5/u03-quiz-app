@@ -37,12 +37,28 @@
   color: var(--color-gray-dark);
 }
 
+.countdown {
+  height: 1.625rem;
+}
+
 .countdown--correct {
   color: var(--color-correct);
 }
 
 .countdown--incorrect {
   color: var(--color-incorrect);
+}
+
+#countdown-time {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+  border-radius: 0.25rem;
+  width: 1.75rem;
+  height: 1.625rem;
+  background: var(--gradient-linear-horizontal);
+  color: var(--color-white);
 }
 
 /* BUTTON CONTAINER */
@@ -89,9 +105,40 @@
   border-color: var(--color-correct);
 }
 
+.answer-option--selected.answer-option--correct {
+  animation: correctAnimation .3s cubic-bezier(.36, .07, .19, .97) both;
+  transform: scale(1);
+}
+
 .answer-option--incorrect {
   box-shadow: 0 0 0 5px var(--color-incorrect);
   border-color: var(--color-incorrect);
+
+  animation: wrongAnimation .4s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes correctAnimation {
+  20%,
+  70% {
+    transform: scale(0.98);
+  }
+  40%,
+  60% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes wrongAnimation {
+  30%,
+  50%,
+  70% {
+    transform: translate3d(2px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(-3px, 0, 0);
+  }
 }
 
 #loading-screen {
