@@ -147,7 +147,6 @@
 
 .loading-text {
   font-size: var(--font-size-heading-md);
-  color: var(--color-gray-dark);
   margin-bottom: var(--spacing-md);
 }
 
