@@ -4,7 +4,7 @@ const countdownInitialTime = 20;
 let timeOut;
 let countdownInterval;
 
-function startTimer(countdownDisplay) {
+function startTimer(countdownEl) {
   clearInterval(countdownInterval);
   clearTimeout(timeOut);
 
@@ -13,18 +13,19 @@ function startTimer(countdownDisplay) {
   printCountdown();
 
   function printCountdown() {
-    countdownDisplay.textContent = `Tid kvar: ${timeLeft} sekunder`;
     localStorage.setItem("countdownTime", timeLeft);
     timeLeft--;
 
+    countdownEl.innerHTML = `Tid kvar: <span id="countdown-time">${timeLeft}</span> sekunder`;
+
     if (timeLeft < 0) {
       clearInterval(countdownInterval);
-      handleTimeout(countdownDisplay);
+      handleTimeout(countdownEl);
     }
   }
 
   countdownInterval = setInterval(printCountdown, 1000);
-  timeOut = setTimeout(() => handleTimeout(countdownDisplay), countdownInitialTime * 1000);
+  timeOut = setTimeout(() => handleTimeout(countdownEl), countdownInitialTime * 1000);
 }
 
 function stopTimer() {
