@@ -63,6 +63,10 @@ ul {
   list-style: none;
 }
 
+a {
+  color: var(--color-anchor);
+}
+
 .article-container {
   display: flex;
   flex-flow: column;
@@ -92,4 +96,19 @@ ul {
 .cta.cta-inverted:hover {
   color: var(--color-white);
   background-color: var(--color-black-absolute);
+}
+
+.quiz-selection-text {
+  font-size: var(--font-size-heading-sm);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.quiz-selection-text > span {
+  display: inline-block;
+}
+
+article li {
+  line-height: 1.6;
 }

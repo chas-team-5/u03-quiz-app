@@ -27,9 +27,21 @@
 <body class="result">
   <div class="container">
     <header>
-      <a href="./">
-        <img class="header-logo" src="./assets/images/quiz-hitta-ditt-inre-logo.svg" alt="Quiz, Hitta ditt inre">
+      <a href="./index.html">
+        <img class="header-logo" width="152" height="69" src="./assets/images/quiz-hitta-ditt-inre-logo.svg" alt="Quiz, Hitta ditt inre">
       </a>
+
+      <nav class="main-navigation" aria-label="Huvudnavigering">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="./index.html" class="cta cta-inverted nav-link">Hem</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="about.html" class="cta cta-inverted nav-link">Om quizet</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <article class="article-container result">
@@ -41,7 +53,9 @@
         <p id="result-text"></p>
       </section>
 
-      <h4 class="gradient-horizontal">Välj ett nytt quiz</h4>
+      <p class="quiz-selection-text">
+        <span class="gradient-horizontal">Välj ett nytt quiz</span>
+      </p>
 
       <div class="button-container" id="category-selection">
         <button class="cta" type="button" data-category="djur-och-natur">Djur och natur</button>
