@@ -83,7 +83,7 @@ function printAnswers() {
 
   answerOptions.forEach((item) => {
     answerOptionsEl.innerHTML += `
-      <label class="answer-option">
+      <label class="cta cta-inverted answer-option">
         <input type="radio" name="options" value="${item.text.toLowerCase()}" id="option-${item.optionIndex}" data-id="${item.optionIndex}">
         <span>${item.text}</span>
       </label>

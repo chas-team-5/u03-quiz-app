@@ -9,7 +9,7 @@ const countdownEl = document.getElementById("countdown");
 const progressEl = document.getElementById("progress");
 const answersCorrectEl = document.getElementById("answers-correct");
 const readyNext = document.getElementById("ready-next");
-const resultEl = document.querySelectorAll(".result-content")[0];
+const resultEl = document.getElementById("result-content");
 const resultNameEl = document.getElementById("result-name");
 const resultTextEl = document.getElementById("result-text");
 
