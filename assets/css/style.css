@@ -87,8 +87,8 @@ body.about .article-container p {
   margin-inline: unset;
 }
 
-body.about .article-container hr {
-  margin-top: var(--spacing-md);
+body.about .container hr {
+  margin-block: var(--spacing-md) var(--spacing-lg);
   max-width: var(--max-width-md);
 }
 
