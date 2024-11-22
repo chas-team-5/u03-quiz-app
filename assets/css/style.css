@@ -22,11 +22,14 @@ body {
 }
 
 header {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.header-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: var(--spacing-xl);
-  margin-bottom: var(--spacing-md);
 }
 
 .nav-links {
