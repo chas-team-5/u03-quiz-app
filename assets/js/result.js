@@ -38,6 +38,7 @@ async function displayResult(category) {
   const result = await fetchResult(category);
   const img = document.createElement("img");
   const character = result.find(item => item.id === resultId);
+  const resultLinkHtml = `<br>Läs mer om: <a href="${character.link}" target="_blank" rel="noopener noreferrer"> ${character.name}</a>`;
   var confettiCanvas = document.createElement("canvas");
   confettiCanvas.classList.add("confetti");
 
@@ -49,6 +50,7 @@ async function displayResult(category) {
   resultEl.insertBefore(img, resultNameEl);
   resultNameEl.textContent = character.name + "!";
   resultTextEl.textContent = character.text;
+  resultTextEl.innerHTML += resultLinkHtml;
 
   resultEl.prepend(confettiCanvas);
   const confettiFire = confetti.create(confettiCanvas, { resize: true });

@@ -3,30 +3,35 @@
     "id": 1,
     "name": "Ada Lovelace",
     "text": "Du är ett geni som, precis som världens första programmerare, ligger före din tid. Hoppas du inte behöver vänta lika länge som Ada på att bli erkänd!",
-    "image": "./assets/images/teknik/result/ada-lovelace.webp"
+    "image": "./assets/images/teknik/result/ada-lovelace.webp",
+    "link": "https://sv.wikipedia.org/wiki/Ada_Lovelace"
   },
   {
     "id": 2,
     "name": "Bill Gates",
     "text": "Du är en väldigt kompetent vit man i övre medelåldern - och en av världens rikaste. Imponerande, eller hur? But let's move on; du är ingen Ada Lovelace, om vi ska vara ärliga. Men din entreprenörsanda och ditt sinne för innovation gör att du tänker stort och skapar lösningar som förändrar världen.",
-    "image": "./assets/images/teknik/result/bill-gates.webp"
+    "image": "./assets/images/teknik/result/bill-gates.webp",
+    "link": "https://sv.wikipedia.org/wiki/Bill_Gates"
   },
   {
     "id": 3,
     "name": "Annie Easley",
     "text": "Du är väldigt begåvad, ihärdig, modig, kreativ och intelligent - även om du kanske inte är lika rik som Bill Gates. Du är en banbrytare inom teknik, och med ditt hårda arbete och passion kan du räkna ut allt - till och med de svåraste algoritmerna. NASA hade definitivt älskat dig!",
-    "image": "./assets/images/teknik/result/annie-easley.webp"
+    "image": "./assets/images/teknik/result/annie-easley.webp",
+    "link": "https://sv.wikipedia.org/wiki/Annie_Easley"
   },
   {
     "id": 4,
     "name": "Tech Noob",
     "text": "Welcome to the world of tech! Än så länge är du en väldigt “unfriendly user” men vi älskar en utmaning!",
-    "image": "./assets/images/teknik/result/tech-noob.webp"
+    "image": "./assets/images/teknik/result/tech-noob.webp",
+    "link": "https://www.urbandictionary.com/define.php?term=technoob"
   },
   {
     "id": 5,
     "name": "Teknikosaurus Rex",
-    "text": "Du är en levande fossil i teknikvärlden – du kan säkert stava till “teknik”, men där tar det stopp. Vi rekommenderar att du provar vårt djur och naturquiz… om du lyckas hitta länken, förstås!",
-    "image": "./assets/images/teknik/result/teknikosaurus-rex.webp"
+    "text": "Du är en levande fossil i teknikvärlden - du kan säkert stava till “teknik”, men där tar det stopp. Vi rekommenderar att du provar vårt djur och naturquiz… om du lyckas hitta länken, förstås!",
+    "image": "./assets/images/teknik/result/teknikosaurus-rex.webp",
+    "link": "https://urplay.se/serie/214200-seniorsurfarna"
   }
 ]
