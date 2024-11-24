@@ -54,7 +54,7 @@ Applikationen är skalbar genom att nya quiz kan läggas till genom att skapa en
 
 * **Teknisk lösning:** Quiz-applikationen är enkel att underhålla och utöka genom den skalbara strukturen med JSON-filer. Detta gör att vi lätt kan lägga till fler quiz eller ändra existerande utan att ändra kodens struktur. Vi är också nöjda med hur vi hanterar scenarier där användare laddar om sidan under quizet och hur vi förhindrar fusk vid timeout.
 
-### Styrkor:
+### Utmaningar:
 * En utmaning var att skapa en användarvänlig och effektiv lösning för att hantera tidsbegränsade frågor och svar. Vi jobbar fortfarande på att förbättra användarupplevelsen och förhindra eventuella tekniska problem vid tidsövergångar.
 
 * Under projektet upptäckte vi att vi inte hade tillräckligt med tid att lägga till extra funktioner som vi hade planerat, såsom en "settings"-knapp på startsidan, bonuspoäng för snabba svar, fler frågor för variation, och en dela-knapp på resultatsidan.
