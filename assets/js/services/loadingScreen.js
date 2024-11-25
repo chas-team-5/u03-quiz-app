@@ -6,9 +6,9 @@ let categoryText;
 
 if (currentStep === null || currentStep === "") {
   if (category === "djur-och-natur") {
-    categoryText = "Gör dig redo för 'Djur & Natur'";
+    categoryText = `Gör dig redo för <span class="no-wrap-text">'Djur & Natur'!</span>`;
   }   else if (category === "teknik") {
-    categoryText = "Gör dig redo för 'Teknik'";
+    categoryText = `Gör dig redo för <span class="no-wrap-text">'Teknik'!</span>`;
   }
 }
 

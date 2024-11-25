@@ -17,21 +17,21 @@
   {
     "id": 3,
     "name": "Steve Irwin",
-    "text": "Du kan mycket men inte allt och övermod kan vara ödesdigert. Vi vet alla vad som hände Steve… (Googla)",
+    "text": "Du kan mycket men inte allt och övermod kan vara ödesdigert. \nVi vet alla vad som hände Steve… (Googla)",
     "image": "./assets/images/djur-och-natur/result/steve-irwin.webp",
     "link": "https://sv.wikipedia.org/wiki/Steve_Irwin"
   },
   {
     "id": 4,
     "name": "Dora the Explorer",
-    "text": "Misströsta inte! Du är nyfiken men kan inte så mycket… än.",
+    "text": "Misströsta inte! \nDu är nyfiken men kan inte så mycket… än.",
     "image": "./assets/images/djur-och-natur/result/dora-the-explorer.webp",
     "link": "https://sv.wikipedia.org/wiki/Dora_utforskaren"
   },
   {
     "id": 5,
-    "name": "Du är en naturförnekare",
-    "text": "Det finns en hel värld fylld med skönhet och skräck där ute, som bara väntar på att upptäckas. Men tydligen har du aldrig lockats bortom din datorskärm. Finns det hopp? Eller förresten, håll dig bara till vårt teknikquiz.",
+    "name": "Naturförnekare",
+    "text": "Det finns en hel värld fylld med skönhet och skräck där ute, som bara väntar på att upptäckas. Men tydligen har du aldrig lockats bortom din datorskärm. \nFinns det hopp? Eller förresten, håll dig bara till vårt teknikquiz.",
     "image": "./assets/images/djur-och-natur/result/naturfornekare.webp",
     "link": "https://www.svtplay.se/lista/svtId_8rQLEQA/planet-earth-storslagen-naturserie"
   }

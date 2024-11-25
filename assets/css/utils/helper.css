@@ -9,3 +9,7 @@
   background-clip: text;
   color: transparent;
 }
+
+.no-wrap-text {
+  white-space: nowrap;
+}

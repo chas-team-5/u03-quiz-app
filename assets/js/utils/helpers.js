@@ -12,7 +12,7 @@ function goToStart() {
 }
 
 function goToResult() {
-  window.location.href = "result.html";
+  window.location.href = "resultat.html";
 }
 
 function goToQuiz() {

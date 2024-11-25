@@ -16,21 +16,21 @@
   {
     "id": 3,
     "name": "Annie Easley",
-    "text": "Du är väldigt begåvad, ihärdig, modig, kreativ och intelligent - även om du kanske inte är lika rik som Bill Gates. Du är en banbrytare inom teknik, och med ditt hårda arbete och passion kan du räkna ut allt - till och med de svåraste algoritmerna. NASA hade definitivt älskat dig!",
+    "text": "Du är väldigt begåvad, ihärdig, modig, kreativ och intelligent - även om du kanske inte är lika rik som Bill Gates. Du är en banbrytare inom teknik, och med ditt hårda arbete och passion kan du räkna ut allt - till och med de svåraste algoritmerna. \nNASA hade definitivt älskat dig!",
     "image": "./assets/images/teknik/result/annie-easley.webp",
     "link": "https://sv.wikipedia.org/wiki/Annie_Easley"
   },
   {
     "id": 4,
     "name": "Tech Noob",
-    "text": "Welcome to the world of tech! Än så länge är du en väldigt “unfriendly user” men vi älskar en utmaning!",
+    "text": "Welcome to the world of tech! \nÄn så länge är du en väldigt “unfriendly user” men vi älskar en utmaning!",
     "image": "./assets/images/teknik/result/tech-noob.webp",
     "link": "https://www.urbandictionary.com/define.php?term=technoob"
   },
   {
     "id": 5,
     "name": "Teknikosaurus Rex",
-    "text": "Du är en levande fossil i teknikvärlden - du kan säkert stava till “teknik”, men där tar det stopp. Vi rekommenderar att du provar vårt djur och naturquiz… om du lyckas hitta länken, förstås!",
+    "text": "Du är en levande fossil i teknikvärlden - du kan säkert stava till “teknik”, men där tar det stopp. Vi rekommenderar att du provar vårt djur och naturquiz… \nOm du lyckas hitta länken, förstås!",
     "image": "./assets/images/teknik/result/teknikosaurus-rex.webp",
     "link": "https://urplay.se/serie/214200-seniorsurfarna"
   }

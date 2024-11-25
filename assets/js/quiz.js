@@ -44,13 +44,13 @@ function printProgress() {
     li.classList.add(`progress-answer--${step}`);
 
     if (step === "correct") {
-      li.innerHTML = `<i class="fas fa-circle-check"></i>`
+      li.innerHTML = `<img src="./assets/images/progress-answer-correct.svg" width="16" height="16" alt="Rätt svar">`
 
     } else if (step === "incorrect") {
-      li.innerHTML = `<i class="fas fa-circle-xmark"></i>`
+      li.innerHTML = `<img src="./assets/images/progress-answer-incorrect.svg" width="16" height="16" alt="Fel svar">`
 
     } else {
-      li.innerHTML = `<i class="fas fa-circle"></i>`
+      li.innerHTML = `<img src="./assets/images/progress-answer-unanswered.svg" width="16" height="16" alt="Ej besvarad">`
     }
 
     progressEl.appendChild(li);
@@ -83,7 +83,7 @@ function printAnswers() {
 
   answerOptions.forEach((item) => {
     answerOptionsEl.innerHTML += `
-      <label class="answer-option">
+      <label class="cta cta-inverted answer-option">
         <input type="radio" name="options" value="${item.text.toLowerCase()}" id="option-${item.optionIndex}" data-id="${item.optionIndex}">
         <span>${item.text}</span>
       </label>
