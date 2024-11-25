@@ -22,7 +22,7 @@
   --font-size-heading-xs: 1.2rem;
 
   --font-size-sm: 1.125rem;
-  --font-size-xs: 0.75rem;
+  --font-size-xs: 0.875rem;
 
   /* Spacing */
   --spacing-xxl: 4rem;
@@ -33,7 +33,7 @@
   --spacing-xs: 0.5rem;
 
   /* Container Widths */
-  --max-width-lg: 62.5rem;
+  --max-width-lg: 75rem;
   --max-width-md: 44rem;
 
   /* Misc */

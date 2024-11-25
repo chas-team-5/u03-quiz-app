@@ -69,5 +69,5 @@ Applikationen är skalbar genom att nya quiz kan läggas till genom att skapa en
 * **Dela-knapp:** Vi vill också lägga till en funktion som gör det möjligt för användare att dela sina resultat på sociala medier.
   
 
-# Designskiss och design
+# Wireframe och design
 ![Quiz](https://github.com/chas-team-5/u03-quiz-app/raw/main/sketch-and-design.webp)

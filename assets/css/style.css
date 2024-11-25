@@ -31,7 +31,7 @@ header {
   justify-content: space-between;
   align-items: flex-start;
   margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 header .cta {
@@ -45,6 +45,7 @@ header .cta {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-black-absolute);
+  hyphens: manual;
 }
 
 h1 {
@@ -220,11 +221,30 @@ canvas.confetti {
 /* Desktop up */
 @media (width >= 62.5rem) {
   header {
+    margin-top: var(--spacing-md);
+  }
+
+  .container {
+    padding-inline: var(--spacing-lg);
+  }
+}
+
+/* Desktop XL up */
+@media (width >= 75rem) {
+  header {
     margin-top: var(--spacing-xl);
   }
 
   .container {
     padding-inline: var(--spacing-xl);
+  }
+}
+
+/* Tablet Down */
+@media (width < 62.5rem) {
+  .header-logo {
+    width: 115px;
+    height: 50px;
   }
 }
 
@@ -251,31 +271,22 @@ canvas.confetti {
   }
 }
 
-/* Tablet Up */
-@media (width >= 48rem) {
-  header {
-    align-items: center;
-  }
-
-  .cta {
-    font-size: var(--font-size-sm);
-  }
-
-  .quiz-selection-text {
-    font-size: var(--font-size-heading-sm);
-  }
-}
-
-/* Mobile */
+/* Mobile Down */
 @media (width < 48rem) {
-  .header-logo {
-    width: 115px;
-    height: 50px;
-  }
-
   #result-content img {
     width: 15rem;
     height: auto;
+  }
+
+  .index-img {
+    max-width: 420px;
+  }
+}
+
+/* Mobile Tiny */
+@media (width < 37.5rem) {
+  .index-img {
+    max-width: 280px;
   }
 }
 
