@@ -15,18 +15,6 @@ body.quiz .article-container {
   gap: var(--spacing-xs);
 }
 
-.progress-answer--unanswered {
-  color: var(--color-white);
-}
-
-.progress-answer--correct {
-  color: var(--color-correct);
-}
-
-.progress-answer--incorrect {
-  color: var(--color-incorrect);
-}
-
 /* TIMER / ANSWER REVEAL */
 
 .stepper-readout,
