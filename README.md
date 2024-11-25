@@ -14,12 +14,14 @@ Gruppdeltagare:
 ## Projektbeskrivning
 Vårt projekt är en quiz-applikation som inte bara erbjuder en rolig och interaktiv upplevelse för användaren, utan även har ett utbildande syfte. Genom quizet får användare svara på frågor inom olika kategorier, där resultatet baseras på antalet rätta svar. Applikationen är byggd i HTML, CSS och vanilla JavaScript och använder JSON-filer för att lagra frågor och resultat.
 
-Quizet är utformat för att både testa och utbilda användaren. Detta gör vi genom de karaktärer som användaren kan bli baserat på sina svar och genom relevanta länkar på resultatsidan och Om quizet-sidan. Varje kategori innehåller karaktärer som Ada Lovelace inom teknik och David Attenborough för natur och djur, vilka inspirerar och uppmuntrar till vidare lärande.
+Quizet är utformat för att både testa kunskaper och utbilda. Detta gör vi genom de karaktärer som användaren kan bli, baserat på svaren, samt relevanta länkar på resultats- och Om quizet-sidan. Varje kategori innehåller karaktärer som Ada Lovelace inom teknik och David Attenborough för natur och djur, vilka inspirerar och uppmuntrar till vidare lärande.
 
 ### Funktioner
 * Användaren väljer mellan två kategorier: *Djur och Natur* eller *Teknik*.
 
-* Varje kategori innehåller frågor som slumpas och visas för användaren. Svarsalternativen för varje fråga slumpas också, men vi håller koll på ID för att kunna matcha rätt svar.
+* Varje kategori har en tillhörande JSON-fil som innehåller frågor och svar som slumpas fram för att förhindra att användaren lär sig ordningen/mönstret vid upprepade spelomgångar.
+
+* Användaren får fyra svarsalternativ för varje fråga som även de får en slumpmässig ordningsföljd , men  varje alternativ har ett unikt ID för att kunna matcha rätt svar.
 
 * Användaren får 20 sekunder på varje fråga och kan inte återställa tidtagaren genom att ladda om sidan.
 
@@ -30,7 +32,12 @@ Quizet är utformat för att både testa och utbilda användaren. Detta gör vi 
 * Vi hanterar olika scenarier såsom sidladdning under nedräkningen: om besökaren laddar om sidan sparas tiden, och nedräkningen fortsätter där den slutade. När tiden är ute skickas användaren automatiskt till nästa fråga för att förhindra fusk.
 
 ### Skalbarhet
-Applikationen är skalbar genom att nya quiz kan läggas till genom att skapa en ny JSON-fil för en viss kategori. Detta gör det enkelt att lägga till fler frågor eller kategorier utan att behöva ändra applikationens struktur.
+Applikationen är skalbar genom att nya quiz kan läggas till genom att skapa en ny JSON-fil för en viss kategori. Detta gör det enkelt att lägga till fler frågor eller kategorier utan att behöva ändra applikationens struktur.  
+
+Vi har även arbetat med tankesättet “don’t repeat yourself” (DRY) genom att återanvända så mycket kod som möjligt, exempelvis CSS-klasser och funktioner i JS.  
+
+Utöver det använder vi oss också av globala variabler för att minimera behovet att uppdatera varje klass vid förändringar. Detta sparar inte bara tid utan minskar även risken att missa någon variabel som ska ändras.
+
 
 ## Teknisk Implementering
 * **Utvecklingsmetod:** Vi använde en hybridmetod inspirerad av Kanban och Scrum. Vi arbetade med ett gemensamt GitHub-repo och använde feature-branches för utveckling. Varje förändring granskades genom code reviews och sammanslogs till main via pull requests.
@@ -48,11 +55,27 @@ Applikationen är skalbar genom att nya quiz kan läggas till genom att skapa en
 
   * Säkerställa en semantisk struktur i HTML-koden, som att använda radioknappar för svarsalternativ istället för vanliga knappar.
 
+  * Dela upp JavaScript-koden i moduler för att förbättra hanterbarhet och återanvändbarhet.
+
+  * Följa DRY-principen (Don't Repeat Yourself) för att minimera duplicerad kod och göra applikationen mer effektiv.
+
 ## Styrkor och Utmaningar
 ### Styrkor:
 * **Samarbete:** Vårt samarbete har varit starkt tack vare en tydlig uppdelning av ansvarsområden och ett strukturerat arbetsflöde genom Kanban/ Scrum-metoden. Vi har även haft ett bra samarbete genom GitHub Projects och dagliga standups, vilket har hållit oss på rätt spår.
 
-* **Teknisk lösning:** Quiz-applikationen är enkel att underhålla och utöka genom den skalbara strukturen med JSON-filer. Detta gör att vi lätt kan lägga till fler quiz eller ändra existerande utan att ändra kodens struktur. Vi är också nöjda med hur vi hanterar scenarier där användare laddar om sidan under quizet och hur vi förhindrar fusk vid timeout.
+* **Planering:** Vi allokerade mycket tid till planering i det tidiga skedet av projektet. Tillsammans bröt vi ner funktionalitet, processer och utseende i små delar för att underlätta arbetet. Innan vi började programmera hade vi skapat en översiktlig bild samt en designskiss över hur vår applikation skulle se ut och fungera.
+
+* **Struktur:** Tack vare vår gedigna planering var det enkelt att strukturera upp de olika stegen i utvecklingen och vi hade ett jämnt flöde under processen.
+
+* **Semantik:** Vi har värdesatt en korrekt semantik i våran kod, detta som en del av att optimera SEO.
+
+* **DRY:** Under projektet har vi återkommande haft som mål att återanvända kod där det är möjligt, detta gör det enklare att navigera i kodfilerna samt förbättrar prestandan. Det underlättar även vid omstrukturering/vidareutveckling då det endast behövs förändringar på ett fåtal ställen istället för varje enskilt objekt/klass/funktion.
+
+* **Namngivning:** Våra klasser, IDn, variabler och funktioner har alla tydliga och beskrivande namn för att underlätta läsbarhet och samarbete, bland oss själva men även för eventuell överlämning av projekt.
+
+* **Teknisk lösning:**  Quiz-applikationen är enkel att underhålla och utöka genom den skalbara strukturen med JSON-filer. Detta gör att vi lätt kan lägga till fler quiz eller ändra existerande utan att ändra kodens struktur. Vi är också nöjda med hur vi hanterar scenarier där användare laddar om sidan under quizet och hur vi förhindrar fusk vid timeout.
+
+
 
 ### Utmaningar:
 * En utmaning var att skapa en användarvänlig och effektiv lösning för att hantera tidsbegränsade frågor och svar. Vi jobbar fortfarande på att förbättra användarupplevelsen och förhindra eventuella tekniska problem vid tidsövergångar.
