@@ -48,6 +48,8 @@ Utöver det använder vi oss också av globala variabler för att minimera behov
 
 * **SEO:** Vi har optimerat applikationen med relevanta meta-taggar som innehåller våra huvudnyckelord. Vi har även implementerat Open Graph-taggar med en tydlig och relevant bild samt en beskrivning, vilket gör att vår applikation är väl optimerad för sociala medier och sökmotorer. Vi skapade också en "Om Quizet"-sida där vi beskriver quizet i detalj, med externa länkar till ytterligare resurser för varje kategori. Denna sida innehåller också knappar för att starta quizet för respektive kategori.
 
+* **Testning:** Vi har kontinuerligt testat applikationens funktionalitet för att hitta buggar/fel/exploits och säkerställa att programmets körschema exekveras korrekt.
+
 * **Prestanda:** För att förbättra prestandan genomförde vi tester med Lighthouse och optimerade applikationen genom att:
   * Konvertera alla bilder till WebP-format för bättre komprimering och snabbare laddningstider.
 
@@ -58,6 +60,8 @@ Utöver det använder vi oss också av globala variabler för att minimera behov
   * Dela upp JavaScript-koden i moduler för att förbättra hanterbarhet och återanvändbarhet.
 
   * Följa DRY-principen (Don't Repeat Yourself) för att minimera duplicerad kod och göra applikationen mer effektiv.
+
+  * Hostar SVG-ikoner lokalt istället för att använda externa bibliotek som Font Awesome, vilket förbättrar prestanda genom färre nätverksförfrågningar och ger full kontroll över design och anpassning.
 
 ## Styrkor och Utmaningar
 ### Styrkor:
@@ -82,8 +86,10 @@ Utöver det använder vi oss också av globala variabler för att minimera behov
 
 * Under projektet upptäckte vi att vi inte hade tillräckligt med tid att lägga till extra funktioner som vi hade planerat, såsom en "settings"-knapp på startsidan, bonuspoäng för snabba svar, fler frågor för variation, och en dela-knapp på resultatsidan.
 
+* Vi har tyvärr haft en del problem med sjukdom och andra privata händelser som har begränsat tiden vi kunnat lägga på projektet, men tack vare vår planering, struktur och kommunikation har vi kunna överkomma dess hinder.
+
 ### Framtida förbättringar:
-* **Inställningar på startsidan:** Vi skulle vilja lägga till en knapp för inställningar där användare kan justera tidsgränser och svarsalternativ.
+* **Inställningar på startsidan:** Vi skulle vilja lägga till en knapp för inställningar där användare bland annat kan justera tidsgränser, antal frågor samt svarsalternativ med mera.
 
 * **Bonuspoäng:** För att uppmuntra snabba och korrekta svar skulle vi vilja införa bonuspoäng.
 
